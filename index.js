@@ -427,6 +427,7 @@ redBall.addEventListener("click", () => {
   totalRedsLeft--;
   if (totalRedsLeft === 0) {
    finalRedColourCheck = false;
+   disableColours([redBall]);
   }
   redBall.innerHTML = totalRedsLeft;
  } else {
@@ -453,12 +454,18 @@ addRed.addEventListener("click", () => {
  if (totalRedsLeft < 15) {
   totalRedsLeft++;
   redBall.innerHTML = totalRedsLeft;
+  if (totalRedsLeft > 0) {
+   enableColours([redBall]);
+  }
  }
 });
 minusRed.addEventListener("click", () => {
  if (totalRedsLeft > 0) {
   totalRedsLeft--;
   redBall.innerHTML = totalRedsLeft;
+ }
+ if (totalRedsLeft === 0) {
+  disableColours([redBall]);
  }
 });
 endFrameButton.addEventListener("click", () => {
