@@ -200,11 +200,14 @@ blackBall.addEventListener("click", () => {
   foulMSG.className = "hidden";
   disableColours(ballsArray);
   changePlayer();
+  if (finalRedColourCheck === true) {
+   handleFoulsAtEnd();
+  }
   return;
  }
  if (finalRedColourCheck === true) {
   //   disableColours([blackBall]);
-  finalColourCheck.push("black");
+  if (!finalColourCheck.includes("black")) finalColourCheck.push("black");
   endGameChecker();
  }
  if (finalRedColourCheck === false) {
@@ -238,11 +241,14 @@ pinkBall.addEventListener("click", () => {
   foulMSG.className = "hidden";
   disableColours(ballsArray);
   changePlayer();
+  if (finalRedColourCheck === true) {
+   handleFoulsAtEnd();
+  }
   return;
  }
  if (finalRedColourCheck === true) {
   disableColours([pinkBall]);
-  finalColourCheck.push("pink");
+  if (!finalColourCheck.includes("pink")) finalColourCheck.push("pink");
   enableColours([blackBall]);
  }
  if (finalRedColourCheck === false) {
@@ -276,11 +282,14 @@ blueBall.addEventListener("click", () => {
   foulMSG.className = "hidden";
   disableColours(ballsArray);
   changePlayer();
+  if (finalRedColourCheck === true) {
+   handleFoulsAtEnd();
+  }
   return;
  }
  if (finalRedColourCheck === true) {
   disableColours([blueBall]);
-  finalColourCheck.push("blue");
+  if (!finalColourCheck.includes("blue")) finalColourCheck.push("blue");
   enableColours([pinkBall]);
  }
  if (finalRedColourCheck === false) {
@@ -314,11 +323,14 @@ brownBall.addEventListener("click", () => {
   foulMSG.className = "hidden";
   disableColours(ballsArray);
   changePlayer();
+  if (finalRedColourCheck === true) {
+   handleFoulsAtEnd();
+  }
   return;
  }
  if (finalRedColourCheck === true) {
   disableColours([brownBall]);
-  finalColourCheck.push("brown");
+  if (!finalColourCheck.includes("brown")) finalColourCheck.push("brown");
   enableColours([blueBall]);
  }
  if (finalRedColourCheck === false) {
@@ -352,11 +364,14 @@ greenBall.addEventListener("click", () => {
   foulMSG.className = "hidden";
   disableColours(ballsArray);
   changePlayer();
+  if (finalRedColourCheck === true) {
+   handleFoulsAtEnd();
+  }
   return;
  }
  if (finalRedColourCheck === true) {
   disableColours([greenBall]);
-  finalColourCheck.push("green");
+  if (!finalColourCheck.includes("green")) finalColourCheck.push("green");
   enableColours([brownBall]);
  }
  if (finalRedColourCheck === false) {
@@ -390,11 +405,14 @@ yellowBall.addEventListener("click", () => {
   foulMSG.className = "hidden";
   disableColours(ballsArray);
   changePlayer();
+  if (finalRedColourCheck === true) {
+   handleFoulsAtEnd();
+  }
   return;
  }
  if (finalRedColourCheck === true) {
   disableColours([yellowBall]);
-  finalColourCheck.push("yellow");
+  if (!finalColourCheck.includes("yellow")) finalColourCheck.push("yellow");
   enableColours([greenBall]);
  }
  if (finalRedColourCheck === false) {
@@ -530,6 +548,19 @@ function endGame() {
   playerTwoScore.innerHTML = playerTwoTotal;
   enableColours([redBall]);
  }
+}
+function handleFoulsAtEnd() {
+ const order = ["yellow", "green", "brown", "blue", "pink", "black"];
+ const currentColour = finalColourCheck[finalColourCheck.length - 1];
+ const colours = {
+  yellow: yellowBall,
+  green: greenBall,
+  brown: brownBall,
+  blue: blueBall,
+  pink: pinkBall,
+  black: blackBall,
+ };
+ enableColours([colours[order[order.indexOf(currentColour) + 1]]]);
 }
 //add scores to the bottom???
 
