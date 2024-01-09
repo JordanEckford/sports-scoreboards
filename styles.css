@@ -18,6 +18,30 @@ h1 {
  color: white;
  margin-top: 30px;
 }
+#name-form {
+ width: 80%;
+ margin: 0 auto;
+ display: flex;
+ flex-direction: column;
+}
+label {
+ font-size: 25px;
+}
+#player-1-name,
+#player-2-name {
+ height: 50px;
+ margin-bottom: 10px;
+ font-size: 25px;
+}
+#start-game-button {
+ width: fit-content;
+ margin: 20px auto;
+ border-radius: 5px;
+ padding: 10px;
+ font-size: 20px;
+ background-color: white;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 #change-name {
  margin: 0 auto;
  border-radius: 5px;
