@@ -1,9 +1,7 @@
 html {
- /* height: 100vh;
- max-height: 100vh; */
  background-image: url("./pool.jpg");
  background-repeat: no-repeat;
- background-size: 100vw 100vh;
+ background-size: 100% 100%;
  background-attachment: fixed;
  color: white;
  font-family: "Inconsolata", monospace;
@@ -15,10 +13,19 @@ h1 {
  justify-content: center;
  color: white;
  margin-top: 30px;
+ text-decoration: underline;
 }
 body,
 html {
+ margin: 0;
+ padding: 0;
  height: 100%;
+}
+body {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
 }
 #name-form {
  width: 80%;
@@ -47,8 +54,8 @@ label {
 #change-name {
  margin: 0 auto;
  border-radius: 5px;
- padding: 10px;
- font-size: 20px;
+ padding: 5px;
+ font-size: 15px;
  background-color: white;
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -61,7 +68,7 @@ label {
 #scoreboard {
  display: grid;
  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
- grid-template-rows: 100px 50px 50px;
+ grid-template-rows: 80px 30px 30px;
  margin-top: 10px;
 }
 #scoreboard-labels {
@@ -122,7 +129,6 @@ label {
  grid-column: 4;
  grid-row: 3;
 }
-
 #timer {
  display: flex;
  flex-direction: column;
@@ -160,7 +166,7 @@ h3 {
  flex-direction: column;
  align-content: center;
  justify-content: center;
- margin: 10px auto;
+ margin: 0px auto;
 }
 #other-moves,
 #revert {
@@ -175,7 +181,7 @@ h3 {
  font-weight: 800;
 }
 .ball {
- margin: 10px auto;
+ margin: 5px auto;
  border: black 1px solid;
  border-radius: 20px;
  padding: 5px;
@@ -250,7 +256,7 @@ h3 {
 #end-frame {
  margin: 10px auto;
  border-radius: 5px;
- padding: 10px;
+ padding: 5px 10px;
  font-size: 20px;
  background-color: white;
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
