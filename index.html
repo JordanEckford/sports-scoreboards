@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snooker Tracker</title>
+  <script defer src="./index.js"></script>
+  <link href="./styles.css" rel="stylesheet" />
+ </head>
+ <body>
+  <h1>Snooker Tracker</h1>
+  <form id="name-form">
+   <label for="player-1-name">Player 1:</label>
+   <input id="player-1-name" required />
+   <label for="player-2-name">Player 2:</label>
+   <input id="player-2-name" required />
+   <button type="submit">Start Game!</button>
+  </form>
+  <button id="restart-game"" class="hidden">Change Names</button>
+  <div id="bulk">
+  <section id="scoreboard">
+    <div id="player-1-tile" class="current">
+      <h2 id="player-1"></h2>
+      <h3 id="player-1-score"></h3>
+    </div>
+    <div id="turn-switcher">Switch Player</div>
+    <div id="player-2-tile" class="">
+        <h2 id="player-2"></h2>
+        <h3 id="player-2-score"></h3>
+    </div>
+</section>
+  <main>
+    <section id="balls">
+        <button class="ball" id="black"></button>
+        <button class="ball" id="pink"></button>
+        <button class="ball" id="blue"></button>
+        <div id="low-colours">
+        <button class="ball" id="brown"></button>
+        <button class="ball" id="green"></button>
+        <button class="ball" id="yellow"></button>
+        </div>
+        <button class="ball" id="red">15</button>
+      </section>
+
+      <p id="foul-msg" class="hidden">Select ball fouled on (click to cancel)</p>
+
+      <section id="other-moves">
+      <div id="foul">Foul</div>
+      <div id="safety">Safety</div>
+      <div id="miss">Miss</div>
+    </section>
+    <section id="revert">
+      <div id="undo">Undo</div>
+      <div id="redo">Redo</div>
+    </section>
+    <section id="red-modifier">
+      <p id="minus-red">-</p>
+      <p>Adjust Reds</p>
+      <p id="add-red">+</p>
+    </section>
+  </div>
+  </main>
+ </body>
+</html>
