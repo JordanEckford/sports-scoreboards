@@ -166,7 +166,6 @@ changeNameButton.addEventListener("click", () => {
   nameForm.className = "";
   bulk.className = "hidden";
   changeNameButton.className = "hidden";
-  //**************************************************************************************** */
   playerOneFrameCount = 0;
   playerTwoFrameCount = 0;
   playerOneTotal = 0;
@@ -175,6 +174,9 @@ changeNameButton.addEventListener("click", () => {
   playerTwoFrameCountContainer.innerHTML = playerTwoFrameCount;
   playerOneScore.innerHTML = playerOneTotal;
   playerTwoScore.innerHTML = playerOneTotal;
+  started = false;
+  timerMinutes = 0;
+  timerSeconds = 0;
  } else {
   return;
  }
@@ -429,6 +431,8 @@ endFrameButton.addEventListener("click", () => {
   playerTwoScore.innerHTML = playerTwoTotal;
  }
 });
+
+//add scores to the bottom???
 
 // const test = document.createElement("p");
 // test.innerHTML = window.localStorage.player2;
