@@ -16,27 +16,38 @@
    <input id="player-2-name" required />
    <button type="submit">Start Game!</button>
   </form>
-  <button id="restart-game"" class="hidden">Change Names</button>
+  <div id="return-to-names">
+    <button id="change-name" class="hidden">Change Names</button>
+  </div>
   <div id="bulk" class="hidden">
   <section id="scoreboard">
     <div id="player-1-tile" class="current">
       <h2 id="player-1"></h2>
+      <h3 id="player-1-framecount">0</h3>
       <h3 id="player-1-score"></h3>
     </div>
-    <div id="turn-switcher">Switch Player</div>
+    <div id="scoreboard-labels">
+      <h4 id="frames-label">Frames</h4>
+      <h4 id="score-label">Score</h4>
+    </div>
     <div id="player-2-tile" class="">
         <h2 id="player-2"></h2>
+        <h3 id="player-2-framecount">0</h3>
         <h3 id="player-2-score"></h3>
     </div>
 </section>
   <main>
+    <div id="timer">
+      <p>Frame Time  </p>
+      <p id="mins-elapsed">0:</p><p id="secs-elapsed">00</p>
+    </div>
     <section id="balls">
         <button class="ball" id="black"></button>
         <button class="ball" id="pink"></button>
         <button class="ball" id="blue"></button>
         <div id="low-colours">
+          <button class="ball" id="green"></button>
         <button class="ball" id="brown"></button>
-        <button class="ball" id="green"></button>
         <button class="ball" id="yellow"></button>
         </div>
         <button class="ball" id="red">15</button>
@@ -45,18 +56,22 @@
       <p id="foul-msg" class="hidden">Select ball fouled on (click to cancel)</p>
 
       <section id="other-moves">
-      <div id="foul">Foul</div>
-      <div id="safety">Safety</div>
-      <div id="miss">Miss</div>
+      <button id="foul">Foul</button>
+      <button id="safety">Safety</button>
+      <button id="miss">Miss</button>
     </section>
     <section id="revert">
-      <div id="undo">Undo</div>
-      <div id="redo">Redo</div>
+      <button id="undo">Undo</button>
+      <button id="end-frame">End Frame</button>
+      <button id="redo">Redo</button>
     </section>
     <section id="red-modifier">
       <p id="minus-red">-</p>
       <p>Adjust Reds</p>
       <p id="add-red">+</p>
+    </section>
+    <section id="results">
+
     </section>
   </div>
   </main>

@@ -11,11 +11,32 @@ h1 {
  align-content: center;
  justify-content: center;
 }
+#return-to-names {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+}
 #scoreboard {
  display: flex;
  flex-direction: row;
  justify-content: space-around;
  align-items: center;
+}
+#scoreboard-labels {
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-end;
+ align-self: flex-end;
+ text-align: center;
+}
+#frames-label,
+#score-label {
+ margin: 0;
+}
+#timer {
+ display: flex;
+ justify-content: center;
 }
 #player-1-tile,
 #player-2-tile {
@@ -29,6 +50,7 @@ h3 {
  display: flex;
  text-align: center;
  align-self: center;
+ margin: 0 auto;
 }
 #balls {
  display: flex;
@@ -118,7 +140,8 @@ h3 {
 #safety,
 #miss,
 #undo,
-#redo {
+#redo,
+#end-frame {
  margin: 10px auto;
  border: solid red 1px;
  padding: 3px;
