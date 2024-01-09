@@ -1,4 +1,5 @@
 const nameForm = document.getElementById("name-form");
+const nameFormContainer = document.getElementById("name-form-container");
 const playerOneHeader = document.getElementById("player-1");
 const playerTwoHeader = document.getElementById("player-2");
 const playerOneScore = document.getElementById("player-1-score");
@@ -127,7 +128,7 @@ player2Tile.addEventListener("click", () => {
 if (window.localStorage.player1 && window.localStorage.player2) {
  playerOne = window.localStorage.player1;
  playerTwo = window.localStorage.player2;
- nameForm.className = "hidden";
+ nameFormContainer.className = "hidden";
  bulk.className = "";
  changeNameButton.className = "";
  playerOneHeader.innerHTML = playerOne;
@@ -149,7 +150,7 @@ nameForm.addEventListener("submit", (event) => {
  event.preventDefault();
  playerOne = event.target[0].value;
  playerTwo = event.target[1].value;
- nameForm.className = "hidden";
+ nameFormContainer.className = "hidden";
  playerOneHeader.innerHTML = playerOne;
  playerTwoHeader.innerHTML = playerTwo;
  changeNameButton.className = "";
@@ -163,7 +164,7 @@ changeNameButton.addEventListener("click", () => {
  const check = confirm("This will delete all game data!");
  if (check) {
   localStorage.clear();
-  nameForm.className = "";
+  nameFormContainer.className = "";
   bulk.className = "hidden";
   changeNameButton.className = "hidden";
   playerOneFrameCount = 0;
