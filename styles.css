@@ -51,7 +51,8 @@ label {
  background-color: white;
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-#change-name {
+#change-name,
+#result-button {
  margin: 0 auto;
  border-radius: 5px;
  padding: 5px;
@@ -262,7 +263,7 @@ h3 {
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .disabled {
- margin: 10px auto;
+ margin: 5px auto;
  border: black 1px solid;
  border-radius: 20px;
  padding: 5px;

@@ -178,6 +178,8 @@ changeNameButton.addEventListener("click", () => {
   started = false;
   timerMinutes = 0;
   timerSeconds = 0;
+  minsElapsed.innerHTML = timerMinutes + ":";
+  secsElapsed.innerHTML = "0" + timerSeconds;
  } else {
   return;
  }
@@ -424,8 +426,10 @@ endFrameButton.addEventListener("click", () => {
   redBall.innerHTML = totalRedsLeft;
   gamesPlayed++;
   window.localStorage.gamesPlayed = gamesPlayed;
-  timerMinutes = 0 + ":";
+  timerMinutes = 0;
   timerSeconds = 0;
+  minsElapsed.innerHTML = timerMinutes + ":";
+  secsElapsed.innerHTML = "0" + timerSeconds;
   playerOneTotal = 0;
   playerTwoTotal = 0;
   playerOneScore.innerHTML = playerOneTotal;
