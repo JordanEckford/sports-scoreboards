@@ -189,7 +189,7 @@ h3 {
  box-shadow: 1px 1px 5px;
 }
 #black {
- background-color: black;
+ background-color: rgb(34, 34, 34);
  border: rgba(163, 163, 163, 0.637) 1px solid;
  width: 40px;
  height: 40px;

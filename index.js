@@ -209,6 +209,8 @@ blackBall.addEventListener("click", () => {
  }
  if (finalRedColourCheck === false) {
   finalRedColourCheck = true;
+  disableColours(ballsArray);
+  enableColours([yellowBall]);
  }
  currentPots[currentPlayer].black++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
@@ -239,11 +241,14 @@ pinkBall.addEventListener("click", () => {
   return;
  }
  if (finalRedColourCheck === true) {
-  //   disableColours([pinkBall]);
+  disableColours([pinkBall]);
   finalColourCheck.push("pink");
+  enableColours([blackBall]);
  }
  if (finalRedColourCheck === false) {
   finalRedColourCheck = true;
+  disableColours(ballsArray);
+  enableColours([yellowBall]);
  }
  currentPots[currentPlayer].pink++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
@@ -274,11 +279,14 @@ blueBall.addEventListener("click", () => {
   return;
  }
  if (finalRedColourCheck === true) {
-  //   disableColours([blueBall]);
+  disableColours([blueBall]);
   finalColourCheck.push("blue");
+  enableColours([pinkBall]);
  }
  if (finalRedColourCheck === false) {
   finalRedColourCheck = true;
+  disableColours(ballsArray);
+  enableColours([yellowBall]);
  }
  currentPots[currentPlayer].blue++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
@@ -309,11 +317,14 @@ brownBall.addEventListener("click", () => {
   return;
  }
  if (finalRedColourCheck === true) {
-  //   disableColours([brownBall]);
+  disableColours([brownBall]);
   finalColourCheck.push("brown");
+  enableColours([blueBall]);
  }
  if (finalRedColourCheck === false) {
   finalRedColourCheck = true;
+  disableColours(ballsArray);
+  enableColours([yellowBall]);
  }
  currentPots[currentPlayer].brown++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
@@ -344,11 +355,14 @@ greenBall.addEventListener("click", () => {
   return;
  }
  if (finalRedColourCheck === true) {
-  //   disableColours([greenBall]);
+  disableColours([greenBall]);
   finalColourCheck.push("green");
+  enableColours([brownBall]);
  }
  if (finalRedColourCheck === false) {
   finalRedColourCheck = true;
+  disableColours(ballsArray);
+  enableColours([yellowBall]);
  }
  currentPots[currentPlayer].green++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
@@ -379,11 +393,14 @@ yellowBall.addEventListener("click", () => {
   return;
  }
  if (finalRedColourCheck === true) {
-  //   disableColours([yellowBall]);
+  disableColours([yellowBall]);
   finalColourCheck.push("yellow");
+  enableColours([greenBall]);
  }
  if (finalRedColourCheck === false) {
   finalRedColourCheck = true;
+  disableColours(ballsArray);
+  enableColours([yellowBall]);
  }
  currentPots[currentPlayer].yellow++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
@@ -511,6 +528,7 @@ function endGame() {
   playerTwoTotal = 0;
   playerOneScore.innerHTML = playerOneTotal;
   playerTwoScore.innerHTML = playerTwoTotal;
+  enableColours([redBall]);
  }
 }
 //add scores to the bottom???
