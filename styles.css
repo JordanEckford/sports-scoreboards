@@ -4,6 +4,7 @@ html {
  background-image: url("./pool.jpg");
  background-repeat: no-repeat;
  background-size: 100vw 100vh;
+ background-attachment: fixed;
  color: white;
  font-family: "Inconsolata", monospace;
 }
@@ -15,9 +16,9 @@ h1 {
  color: white;
  margin-top: 30px;
 }
-body {
+body,
+html {
  height: 100%;
- overflow: hidden;
 }
 #name-form {
  width: 80%;
