@@ -2,15 +2,17 @@
  font-family: "Inconsolata", monospace;
 }
 html {
- background-color: black;
+ background-color: rgb(10, 26, 59);
  color: white;
  font-family: "Inconsolata", monospace;
+ padding: 0;
+ margin: 0;
 }
 body {
  width: 100%;
  max-width: 1000px;
  height: 100vh;
- margin: 0 auto;
+ margin: 0;
  padding: 0;
  max-height: 100vh;
  overflow: hidden;
@@ -21,14 +23,17 @@ h1 {
  align-content: center;
  justify-content: center;
  color: white;
- margin: 0;
+ margin: 0 auto;
+ width: 100vw;
  padding: 0;
- text-decoration: underline;
+ border-bottom: solid 2px white;
 }
 main {
  width: 100vw;
  height: 100%;
  display: flex;
+ margin: 0;
+ padding: 0;
 }
 #red-side {
  width: 50%;
@@ -47,9 +52,6 @@ main {
  flex-direction: column;
  justify-content: center;
  align-items: center;
-}
-.hidden {
- display: none;
 }
 #player-1-input,
 #player-2-input {
@@ -78,13 +80,22 @@ main {
  position: absolute;
  top: 5px;
  right: 10px;
- padding: 5px;
 }
 #colour-settings {
  position: absolute;
  top: 5px;
  left: 10px;
+}
+#reset-scores {
+ position: absolute;
+ top: 5px;
+ left: 120px;
+}
+button {
  padding: 5px;
+ background-color: white;
+ border: 1px solid black;
+ border-radius: 5px;
 }
 #colours-menu {
  position: absolute;
@@ -133,8 +144,8 @@ main {
 #colour-settings-form {
  display: grid;
  grid-template-columns: 1fr 1fr;
- grid-template-rows: 1fr 1fr;
- height: 80%;
+ grid-template-rows: 90% 10%;
+ height: 100%;
 }
 #settings-1 {
  grid-column: 1;
@@ -149,9 +160,27 @@ main {
  grid-column-end: 3;
  width: fit-content;
  height: fit-content;
- margin: 20px auto 0;
+ margin: 0 auto;
  padding: 10px;
 }
 #settings-name {
  text-align: center;
+}
+#warning-msg {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ background-color: aliceblue;
+ z-index: 4;
+ margin: 0;
+ color: black;
+}
+#warning-txt {
+ padding: 50px;
+ text-align: center;
+}
+.hidden {
+ display: none;
 }
