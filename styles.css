@@ -1,3 +1,6 @@
+* {
+ font-family: "Inconsolata", monospace;
+}
 html {
  background-image: url("./pool.jpg");
  background-repeat: no-repeat;
@@ -20,7 +23,7 @@ body {
  width: 100%;
  max-width: 1000px;
  height: 100%;
- margin: 0;
+ margin: 0 auto;
  padding: 0;
 }
 #name-form {
@@ -44,15 +47,6 @@ label {
  border-radius: 5px;
  padding: 10px;
  font-size: 20px;
- background-color: white;
- box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-#change-name,
-#result-button {
- margin: 0 auto;
- border-radius: 5px;
- padding: 5px;
- font-size: 15px;
  background-color: white;
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -258,11 +252,14 @@ h3 {
 #redo,
 #end-frame {
  margin: 10px auto;
- border-radius: 5px;
+ border-radius: 10px;
  padding: 5px 10px;
  font-size: 20px;
- background-color: white;
- box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ font-weight: 600;
+ border: 1px solid black;
+ background-color: #5c8d62;
+ color: white;
+ box-shadow: rgba(0, 0, 0, 0.815) 0px 3px 8px;
 }
 #results {
  display: flex;
@@ -282,13 +279,29 @@ ul {
  padding-inline-start: 0;
  text-align: center;
 }
+#result-container {
+ animation-name: fade;
+ animation-duration: 1s;
+}
+@keyframes fade {
+ from {
+  opacity: 0;
+ }
+ to {
+  opacity: 100;
+ }
+}
+#change-name,
 #results-loader {
- margin: 0 auto 10px;
- border-radius: 5px;
- padding: 5px;
- font-size: 15px;
- background-color: white;
- box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ margin: 10px auto;
+ border-radius: 10px;
+ padding: 5px 10px;
+ font-size: 20px;
+ font-weight: 600;
+ border: 1px solid black;
+ background-color: #5c8d62;
+ color: white;
+ box-shadow: rgba(0, 0, 0, 0.815) 0px 3px 8px;
 }
 .disabled {
  margin: 5px auto;
