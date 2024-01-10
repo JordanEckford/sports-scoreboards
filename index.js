@@ -522,13 +522,27 @@ resultsLoader.addEventListener("click", () => {
  loadPreviousResults();
 });
 function loadPreviousResults() {
- const test = document.createElement("ul");
-
- for (let i = 1; i < frameNumber; i++) {
-  let element = document.createElement("ul");
-  let data = JSON.parse(window.localStorage[i]);
-  element.innerHTML = `Game ${i}: ${playerOne}: ${data[1].score}, ${playerTwo}: ${data[2].score}`;
-  test.appendChild(element);
+ const resultContainer = document.getElementById("result-container");
+ if (resultContainer.className === "") {
+  resultContainer.className = "hidden";
+  const elements = document.getElementsByClassName("result-text");
+  while (elements.length > 0) elements[0].remove();
+  resultsLoader.innerHTML = "Load Results";
+  return;
  }
- document.getElementById("results").appendChild(test);
+ if (resultContainer.className === "hidden") {
+  resultContainer.className = "";
+  const list = document.createElement("ul");
+  list.className = "result-list";
+
+  for (let i = 1; i < frameNumber; i++) {
+   let element = document.createElement("li");
+   element.className = "result-text";
+   let data = JSON.parse(window.localStorage[i]);
+   element.innerHTML = `Frame ${i}: ${playerOne}: ${data[1].score}, ${playerTwo}: ${data[2].score}`;
+   list.appendChild(element);
+  }
+  resultContainer.appendChild(list);
+  resultsLoader.innerHTML = "Hide Results";
+ }
 }
