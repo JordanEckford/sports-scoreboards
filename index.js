@@ -189,13 +189,7 @@ changeNameButton.addEventListener("click", () => {
 
 blackBall.addEventListener("click", () => {
  if (currentFoul) {
-  if (currentPlayer === 1) {
-   playerTwoTotal += 7;
-   playerTwoScore.innerHTML = playerTwoTotal;
-  } else {
-   playerOneTotal += 7;
-   playerOneScore.innerHTML = playerOneTotal;
-  }
+  foulShot(7);
   currentFoul = false;
   foulMSG.className = "hidden";
   disableColours(ballsArray);
@@ -206,7 +200,6 @@ blackBall.addEventListener("click", () => {
   return;
  }
  if (finalRedColourCheck === true) {
-  //   disableColours([blackBall]);
   if (!finalColourCheck.includes("black")) finalColourCheck.push("black");
   endGameChecker();
  }
@@ -217,26 +210,14 @@ blackBall.addEventListener("click", () => {
  }
  currentPots[currentPlayer].black++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
- if (currentPlayer === 1) {
-  playerOneTotal += 7;
-  playerOneScore.innerHTML = playerOneTotal;
- } else {
-  playerTwoTotal += 7;
-  playerTwoScore.innerHTML = playerTwoTotal;
- }
+ addScoreToPlayer(7);
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
 });
 pinkBall.addEventListener("click", () => {
  if (currentFoul) {
-  if (currentPlayer === 1) {
-   playerTwoTotal += 6;
-   playerTwoScore.innerHTML = playerTwoTotal;
-  } else {
-   playerOneTotal += 6;
-   playerOneScore.innerHTML = playerOneTotal;
-  }
+  foulShot(6);
   currentFoul = false;
   foulMSG.className = "hidden";
   disableColours(ballsArray);
@@ -258,26 +239,14 @@ pinkBall.addEventListener("click", () => {
  }
  currentPots[currentPlayer].pink++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
- if (currentPlayer === 1) {
-  playerOneTotal += 6;
-  playerOneScore.innerHTML = playerOneTotal;
- } else {
-  playerTwoTotal += 6;
-  playerTwoScore.innerHTML = playerTwoTotal;
- }
+ addScoreToPlayer(6);
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
 });
 blueBall.addEventListener("click", () => {
  if (currentFoul) {
-  if (currentPlayer === 1) {
-   playerTwoTotal += 5;
-   playerTwoScore.innerHTML = playerTwoTotal;
-  } else {
-   playerOneTotal += 5;
-   playerOneScore.innerHTML = playerOneTotal;
-  }
+  foulShot(5);
   currentFoul = false;
   foulMSG.className = "hidden";
   disableColours(ballsArray);
@@ -299,26 +268,14 @@ blueBall.addEventListener("click", () => {
  }
  currentPots[currentPlayer].blue++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
- if (currentPlayer === 1) {
-  playerOneTotal += 5;
-  playerOneScore.innerHTML = playerOneTotal;
- } else {
-  playerTwoTotal += 5;
-  playerTwoScore.innerHTML = playerTwoTotal;
- }
+ addScoreToPlayer(5);
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
 });
 brownBall.addEventListener("click", () => {
  if (currentFoul) {
-  if (currentPlayer === 1) {
-   playerTwoTotal += 4;
-   playerTwoScore.innerHTML = playerTwoTotal;
-  } else {
-   playerOneTotal += 4;
-   playerOneScore.innerHTML = playerOneTotal;
-  }
+  foulShot(4);
   currentFoul = false;
   foulMSG.className = "hidden";
   disableColours(ballsArray);
@@ -340,26 +297,14 @@ brownBall.addEventListener("click", () => {
  }
  currentPots[currentPlayer].brown++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
- if (currentPlayer === 1) {
-  playerOneTotal += 4;
-  playerOneScore.innerHTML = playerOneTotal;
- } else {
-  playerTwoTotal += 4;
-  playerTwoScore.innerHTML = playerTwoTotal;
- }
+ addScoreToPlayer(4);
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
 });
 greenBall.addEventListener("click", () => {
  if (currentFoul) {
-  if (currentPlayer === 1) {
-   playerTwoTotal += 4;
-   playerTwoScore.innerHTML = playerTwoTotal;
-  } else {
-   playerOneTotal += 4;
-   playerOneScore.innerHTML = playerOneTotal;
-  }
+  foulShot(4);
   currentFoul = false;
   foulMSG.className = "hidden";
   disableColours(ballsArray);
@@ -381,26 +326,14 @@ greenBall.addEventListener("click", () => {
  }
  currentPots[currentPlayer].green++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
- if (currentPlayer === 1) {
-  playerOneTotal += 3;
-  playerOneScore.innerHTML = playerOneTotal;
- } else {
-  playerTwoTotal += 3;
-  playerTwoScore.innerHTML = playerTwoTotal;
- }
+ addScoreToPlayer(3);
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
 });
 yellowBall.addEventListener("click", () => {
  if (currentFoul) {
-  if (currentPlayer === 1) {
-   playerTwoTotal += 4;
-   playerTwoScore.innerHTML = playerTwoTotal;
-  } else {
-   playerOneTotal += 4;
-   playerOneScore.innerHTML = playerOneTotal;
-  }
+  foulShot(4);
   currentFoul = false;
   foulMSG.className = "hidden";
   disableColours(ballsArray);
@@ -422,26 +355,14 @@ yellowBall.addEventListener("click", () => {
  }
  currentPots[currentPlayer].yellow++;
  window.localStorage[frameNumber] = JSON.stringify(currentPots);
- if (currentPlayer === 1) {
-  playerOneTotal += 2;
-  playerOneScore.innerHTML = playerOneTotal;
- } else {
-  playerTwoTotal += 2;
-  playerTwoScore.innerHTML = playerTwoTotal;
- }
+ addScoreToPlayer(2);
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
 });
 redBall.addEventListener("click", () => {
  if (currentFoul) {
-  if (currentPlayer === 1) {
-   playerTwoTotal += 4;
-   playerTwoScore.innerHTML = playerTwoTotal;
-  } else {
-   playerOneTotal += 4;
-   playerOneScore.innerHTML = playerOneTotal;
-  }
+  foulShot(4);
   currentFoul = false;
   foulMSG.className = "hidden";
   disableColours(ballsArray);
@@ -452,13 +373,7 @@ redBall.addEventListener("click", () => {
   currentPots[currentPlayer].red++;
   window.localStorage[frameNumber] = JSON.stringify(currentPots);
   enableColours(ballsArray);
-  if (currentPlayer === 1) {
-   playerOneTotal += 1;
-   playerOneScore.innerHTML = playerOneTotal;
-  } else {
-   playerTwoTotal += 1;
-   playerTwoScore.innerHTML = playerTwoTotal;
-  }
+  addScoreToPlayer(1);
   totalRedsLeft--;
   if (totalRedsLeft === 0) {
    finalRedColourCheck = false;
@@ -480,9 +395,11 @@ foul.addEventListener("click", () => {
  foulMSG.className = "";
 });
 safety.addEventListener("click", () => {
+ if (finalRedColourCheck === null) disableColours(ballsArray);
  changePlayer();
 });
 miss.addEventListener("click", () => {
+ if (finalRedColourCheck === null) disableColours(ballsArray);
  changePlayer();
 });
 addRed.addEventListener("click", () => {
@@ -547,6 +464,7 @@ function endGame() {
   playerOneScore.innerHTML = playerOneTotal;
   playerTwoScore.innerHTML = playerTwoTotal;
   enableColours([redBall]);
+  finalColourCheck = null;
  }
 }
 function handleFoulsAtEnd() {
@@ -561,6 +479,24 @@ function handleFoulsAtEnd() {
   black: blackBall,
  };
  enableColours([colours[order[order.indexOf(currentColour) + 1]]]);
+}
+function addScoreToPlayer(amount) {
+ if (currentPlayer === 1) {
+  playerOneTotal += amount;
+  playerOneScore.innerHTML = playerOneTotal;
+ } else {
+  playerTwoTotal += amount;
+  playerTwoScore.innerHTML = playerTwoTotal;
+ }
+}
+function foulShot(amount) {
+ if (currentPlayer === 1) {
+  playerTwoTotal += amount;
+  playerTwoScore.innerHTML = playerTwoTotal;
+ } else {
+  playerOneTotal += amount;
+  playerOneScore.innerHTML = playerOneTotal;
+ }
 }
 //add scores to the bottom???
 
