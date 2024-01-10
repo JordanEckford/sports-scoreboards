@@ -28,6 +28,7 @@ const secsElapsed = document.getElementById("secs-elapsed");
 const endFrameButton = document.getElementById("end-frame");
 const playerOneFrameCountContainer = document.getElementById("player-1-framecount");
 const playerTwoFrameCountContainer = document.getElementById("player-2-framecount");
+const resultsLoader = document.getElementById("results-loader");
 
 let playerOne = "";
 let playerTwo = "";
@@ -41,17 +42,21 @@ let currentFoul = false;
 let timerSeconds = 0;
 let timerMinutes = 0;
 let currentBreak = 0;
-let frameNumber = 1;
-let gamesPlayed;
+let frameNumber;
+let framesPlayed;
 let started = false;
 let finalRedColourCheck = null;
 let finalColourCheck = [];
+let matchInformation = {
+ games: [],
+};
+let frameInformation;
 
-if (window.localStorage.gamesPlayed) {
- gamesPlayed = window.localStorage.gamesPlayed;
+if (window.localStorage.framesPlayed) {
+ framesPlayed = window.localStorage.framesPlayed;
 } else {
- gamesPlayed = 0;
- window.localStorage.gamesPlayed = 0;
+ framesPlayed = 0;
+ window.localStorage.framesPlayed = 0;
 }
 if (window.localStorage.playerOneFrameCount) {
  playerOneFrameCount = window.localStorage.playerOneFrameCount;
@@ -69,6 +74,26 @@ if (window.localStorage.playerTwoFrameCount) {
  window.localStorage.playerTwoFrameCount = 0;
  playerTwoFrameCountContainer.innerHTML = playerTwoFrameCount;
 }
+if (window.localStorage.frameNumber) {
+ frameNumber = window.localStorage.frameNumber;
+} else {
+ frameNumber = 1;
+ window.localStorage.frameNumber = frameNumber;
+}
+if (window.localStorage[frameNumber]) {
+ frameInformation = JSON.parse(window.localStorage[frameNumber]);
+ playerOneTotal = frameInformation[1].score;
+ playerTwoTotal = frameInformation[2].score;
+ const redsPotted = frameInformation[1].red + frameInformation[2].red;
+ totalRedsLeft -= redsPotted;
+ redBall.innerHTML = totalRedsLeft;
+} else {
+ frameInformation = {
+  frameNumber: frameNumber,
+  1: { red: 0, yellow: 0, green: 0, brown: 0, blue: 0, pink: 0, black: 0, score: 0 },
+  2: { red: 0, yellow: 0, green: 0, brown: 0, blue: 0, pink: 0, black: 0, score: 0 },
+ };
+}
 
 const timer = setInterval(() => {
  if (started) {
@@ -83,11 +108,6 @@ const timer = setInterval(() => {
   }
  }
 }, 1000);
-
-let currentPots = {
- 1: { red: 0, yellow: 0, green: 0, brown: 0, blue: 0, pink: 0, black: 0, score: 0 },
- 2: { red: 0, yellow: 0, green: 0, brown: 0, blue: 0, pink: 0, black: 0, score: 0 },
-};
 
 const undo = [];
 const redo = [];
@@ -199,6 +219,7 @@ blackBall.addEventListener("click", () => {
   }
   return;
  }
+ addScoreToPlayer(7, "black");
  if (finalRedColourCheck === true) {
   if (!finalColourCheck.includes("black")) finalColourCheck.push("black");
   endGameChecker();
@@ -208,9 +229,6 @@ blackBall.addEventListener("click", () => {
   disableColours(ballsArray);
   enableColours([yellowBall]);
  }
- currentPots[currentPlayer].black++;
- window.localStorage[frameNumber] = JSON.stringify(currentPots);
- addScoreToPlayer(7);
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
@@ -237,9 +255,7 @@ pinkBall.addEventListener("click", () => {
   disableColours(ballsArray);
   enableColours([yellowBall]);
  }
- currentPots[currentPlayer].pink++;
- window.localStorage[frameNumber] = JSON.stringify(currentPots);
- addScoreToPlayer(6);
+ addScoreToPlayer(6, "pink");
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
@@ -266,9 +282,7 @@ blueBall.addEventListener("click", () => {
   disableColours(ballsArray);
   enableColours([yellowBall]);
  }
- currentPots[currentPlayer].blue++;
- window.localStorage[frameNumber] = JSON.stringify(currentPots);
- addScoreToPlayer(5);
+ addScoreToPlayer(5, "blue");
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
@@ -295,9 +309,7 @@ brownBall.addEventListener("click", () => {
   disableColours(ballsArray);
   enableColours([yellowBall]);
  }
- currentPots[currentPlayer].brown++;
- window.localStorage[frameNumber] = JSON.stringify(currentPots);
- addScoreToPlayer(4);
+ addScoreToPlayer(4, "brown");
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
@@ -324,9 +336,7 @@ greenBall.addEventListener("click", () => {
   disableColours(ballsArray);
   enableColours([yellowBall]);
  }
- currentPots[currentPlayer].green++;
- window.localStorage[frameNumber] = JSON.stringify(currentPots);
- addScoreToPlayer(3);
+ addScoreToPlayer(3, "green");
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
@@ -353,9 +363,7 @@ yellowBall.addEventListener("click", () => {
   disableColours(ballsArray);
   enableColours([yellowBall]);
  }
- currentPots[currentPlayer].yellow++;
- window.localStorage[frameNumber] = JSON.stringify(currentPots);
- addScoreToPlayer(2);
+ addScoreToPlayer(2, "yellow");
  if (totalRedsLeft !== 0) {
   disableColours(ballsArray);
  }
@@ -370,10 +378,8 @@ redBall.addEventListener("click", () => {
   return;
  }
  if (totalRedsLeft > 0) {
-  currentPots[currentPlayer].red++;
-  window.localStorage[frameNumber] = JSON.stringify(currentPots);
   enableColours(ballsArray);
-  addScoreToPlayer(1);
+  addScoreToPlayer(1, "red");
   totalRedsLeft--;
   if (totalRedsLeft === 0) {
    finalRedColourCheck = false;
@@ -433,9 +439,9 @@ function endGameChecker() {
 function endGame() {
  const check = confirm("Confirm end game, progress will be stored");
  if (check) {
-  currentPots[1].score = playerOneTotal;
-  currentPots[2].score = playerTwoTotal;
-  window.localStorage[frameNumber] = JSON.stringify(currentPots);
+  frameInformation[1].score = playerOneTotal;
+  frameInformation[2].score = playerTwoTotal;
+  window.localStorage[frameNumber] = JSON.stringify(frameInformation);
   if (playerOneTotal === playerTwoTotal) return alert("settle draw!");
   if (playerOneTotal > playerTwoTotal) {
    playerOneFrameCount++;
@@ -447,14 +453,16 @@ function endGame() {
    window.localStorage.playerTwoFrameCount = playerTwoFrameCount;
   }
   frameNumber++;
-  currentPots = {
+  window.localStorage.frameNumber = frameNumber;
+  frameInformation = {
+   frameNumber: frameNumber,
    1: { red: 0, yellow: 0, green: 0, brown: 0, blue: 0, pink: 0, black: 0, score: 0 },
    2: { red: 0, yellow: 0, green: 0, brown: 0, blue: 0, pink: 0, black: 0, score: 0 },
   };
   totalRedsLeft = 15;
   redBall.innerHTML = totalRedsLeft;
-  gamesPlayed++;
-  window.localStorage.gamesPlayed = gamesPlayed;
+  framesPlayed++;
+  window.localStorage.framesPlayed = framesPlayed;
   timerMinutes = 0;
   timerSeconds = 0;
   minsElapsed.innerHTML = timerMinutes + ":";
@@ -480,14 +488,19 @@ function handleFoulsAtEnd() {
  };
  enableColours([colours[order[order.indexOf(currentColour) + 1]]]);
 }
-function addScoreToPlayer(amount) {
+function addScoreToPlayer(amount, colour) {
  if (currentPlayer === 1) {
   playerOneTotal += amount;
   playerOneScore.innerHTML = playerOneTotal;
+  frameInformation[1].score = playerOneTotal;
+  frameInformation[currentPlayer][colour]++;
  } else {
   playerTwoTotal += amount;
   playerTwoScore.innerHTML = playerTwoTotal;
+  frameInformation[2].score = playerTwoTotal;
+  frameInformation[currentPlayer][colour]++;
  }
+ window.localStorage[frameNumber] = JSON.stringify(frameInformation);
 }
 function foulShot(amount) {
  if (currentPlayer === 1) {
@@ -503,3 +516,18 @@ function foulShot(amount) {
 // const test = document.createElement("p");
 // test.innerHTML = window.localStorage.player2;
 // document.getElementById("results").appendChild(test);
+
+resultsLoader.addEventListener("click", () => {
+ loadPreviousResults();
+});
+function loadPreviousResults() {
+ const test = document.createElement("ul");
+
+ for (let i = 1; i < frameNumber; i++) {
+  let element = document.createElement("ul");
+  let data = JSON.parse(window.localStorage[i]);
+  element.innerHTML = `Game ${i}: ${playerOne}: ${data[1].score}, ${playerTwo}: ${data[2].score}`;
+  test.appendChild(element);
+ }
+ document.getElementById("results").appendChild(test);
+}

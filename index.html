@@ -57,7 +57,7 @@
         <button class="ball" id="red">15</button>
       </section>
 
-      <p id="foul-msg" class="hidden">Select ball fouled on (click to cancel)</p>
+      <p id="foul-msg" class="hidden">Select ball fouled on <br/> (click to cancel)</p>
 
       <section id="other-moves">
       <button id="foul">Foul</button>
@@ -65,9 +65,9 @@
       <button id="miss">Miss</button>
     </section>
     <section id="revert">
-      <button id="undo">Undo</button>
+      <button id="undo" class="hidden">Undo</button>
       <button id="end-frame">End Frame</button>
-      <button id="redo">Redo</button>
+      <button id="redo" class="hidden">Redo</button>
     </section>
     <section id="red-modifier">
       <p id="minus-red">-</p>
@@ -76,10 +76,10 @@
     </section>
     <div id="return-to-names">
       <button id="change-name" class="hidden">Change Names</button>
-      <button id="result-button">Show match history</button>
+      <button id="results-loader">Load Results</button>
+      <button id="result-button" class="hidden">Show match history</button>
     </div>
-    <section id="results" class="hidden">
-
+    <section id="results" class="">
     </section>
   </div>
   </main>

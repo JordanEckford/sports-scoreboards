@@ -151,6 +151,7 @@ label {
 #mins-elapsed,
 #secs-elapsed {
  margin-top: 0;
+ font-size: 26px;
 }
 .current {
  border-radius: 9999px;
@@ -177,9 +178,11 @@ h3 {
 }
 #foul-msg {
  margin: 10px auto;
+ width: 80%;
  text-align: center;
- color: red;
+ color: rgb(255, 255, 255);
  font-weight: 800;
+ font-size: 20px;
 }
 .ball {
  margin: 5px auto;
@@ -242,6 +245,8 @@ h3 {
  flex-direction: row;
  justify-content: space-around;
  align-items: center;
+ margin: 10px auto;
+ height: 20px;
 }
 #add-red,
 #minus-red {
@@ -260,6 +265,26 @@ h3 {
  border-radius: 5px;
  padding: 5px 10px;
  font-size: 20px;
+ background-color: white;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#results {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ margin-top: 10px;
+}
+#results ul {
+ margin: 0;
+ padding: 0;
+}
+
+#results-loader {
+ margin: 0 auto 10px;
+ border-radius: 5px;
+ padding: 5px;
+ font-size: 15px;
  background-color: white;
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
