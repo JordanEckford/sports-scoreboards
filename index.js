@@ -86,10 +86,16 @@ if (window.localStorage[frameNumber]) {
  playerTwoTotal = frameInformation[2].score;
  const redsPotted = frameInformation[1].red + frameInformation[2].red;
  totalRedsLeft -= redsPotted;
+ timerMinutes = frameInformation.frameMins;
+ timerSeconds = frameInformation.frameSecs;
+ minsElapsed.innerHTML = timerMinutes + ":";
+ secsElapsed.innerHTML = timerSeconds < 10 ? "0" + timerSeconds : timerSeconds;
  redBall.innerHTML = totalRedsLeft;
 } else {
  frameInformation = {
   frameNumber: frameNumber,
+  frameMins: 0,
+  frameSecs: 0,
   1: { red: 0, yellow: 0, green: 0, brown: 0, blue: 0, pink: 0, black: 0, score: 0 },
   2: { red: 0, yellow: 0, green: 0, brown: 0, blue: 0, pink: 0, black: 0, score: 0 },
  };
@@ -102,9 +108,14 @@ const timer = setInterval(() => {
    minsElapsed.innerHTML = timerMinutes + ":";
    timerSeconds = 0;
    secsElapsed.innerHTML = "0" + timerSeconds;
+   frameInformation.frameMins = timerMinutes;
+   frameInformation.frameSecs = timerSeconds;
+   window.localStorage[frameNumber] = JSON.stringify(frameInformation);
   } else {
    timerSeconds++;
+   frameInformation.frameSecs = timerSeconds;
    secsElapsed.innerHTML = timerSeconds < 10 ? "0" + timerSeconds : timerSeconds;
+   window.localStorage[frameNumber] = JSON.stringify(frameInformation);
   }
  }
 }, 1000);
@@ -456,6 +467,8 @@ function endGame() {
   window.localStorage.frameNumber = frameNumber;
   frameInformation = {
    frameNumber: frameNumber,
+   frameMins: 0,
+   frameSecs: 0,
    1: { red: 0, yellow: 0, green: 0, brown: 0, blue: 0, pink: 0, black: 0, score: 0 },
    2: { red: 0, yellow: 0, green: 0, brown: 0, blue: 0, pink: 0, black: 0, score: 0 },
   };

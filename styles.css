@@ -12,18 +12,16 @@ h1 {
  align-content: center;
  justify-content: center;
  color: white;
- margin-top: 30px;
+ margin-top: 0px;
+ padding-top: 30px;
  text-decoration: underline;
-}
-body,
-html {
- margin: 0 auto;
- padding: 0;
- height: 100%;
 }
 body {
  width: 100%;
  max-width: 1000px;
+ height: 100%;
+ margin: 0;
+ padding: 0;
 }
 #name-form {
  width: 80%;
