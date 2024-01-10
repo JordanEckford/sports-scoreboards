@@ -40,6 +40,7 @@ label {
  height: 50px;
  margin-bottom: 10px;
  font-size: 25px;
+ border-radius: 5px;
 }
 #start-game-button {
  width: fit-content;
@@ -245,7 +246,7 @@ h3 {
  align-items: center;
  font-size: 30px;
 }
-#foul,
+/* #foul,
 #safety,
 #miss,
 #undo,
@@ -260,7 +261,7 @@ h3 {
  background-color: #5c8d62;
  color: white;
  box-shadow: rgba(0, 0, 0, 0.815) 0px 3px 8px;
-}
+} */
 #results {
  display: flex;
  flex-direction: column;
@@ -291,8 +292,7 @@ ul {
   opacity: 100;
  }
 }
-#change-name,
-#results-loader {
+button {
  margin: 10px auto;
  border-radius: 10px;
  padding: 5px 10px;

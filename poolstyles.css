@@ -1,0 +1,157 @@
+* {
+ font-family: "Inconsolata", monospace;
+}
+html {
+ background-color: black;
+ color: white;
+ font-family: "Inconsolata", monospace;
+}
+body {
+ width: 100%;
+ max-width: 1000px;
+ height: 100vh;
+ margin: 0 auto;
+ padding: 0;
+ max-height: 100vh;
+ overflow: hidden;
+}
+h1 {
+ display: flex;
+ flex-direction: row;
+ align-content: center;
+ justify-content: center;
+ color: white;
+ margin: 0;
+ padding: 0;
+ text-decoration: underline;
+}
+main {
+ width: 100vw;
+ height: 100%;
+ display: flex;
+}
+#red-side {
+ width: 50%;
+ height: 100%;
+ background-color: rgb(252, 36, 36);
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+#blue-side {
+ width: 50%;
+ height: 100%;
+ background-color: rgb(43, 43, 253);
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.hidden {
+ display: none;
+}
+#player-1-input,
+#player-2-input {
+ text-align: center;
+ border: none;
+ font-size: 40px;
+ max-width: 50vw;
+ color: white;
+ margin: 0;
+ padding: 0;
+}
+#player-1-input {
+ background-color: rgb(252, 36, 36);
+}
+#player-2-input {
+ background-color: rgb(43, 43, 253);
+}
+#player-1-score,
+#player-2-score {
+ font-size: 50px;
+}
+::placeholder {
+ color: white;
+}
+#lock-names {
+ position: absolute;
+ top: 5px;
+ right: 10px;
+ padding: 5px;
+}
+#colour-settings {
+ position: absolute;
+ top: 5px;
+ left: 10px;
+ padding: 5px;
+}
+#colours-menu {
+ position: absolute;
+ left: 10%;
+ top: 10%;
+ background-color: rgba(0, 0, 0, 0.836);
+ width: 80%;
+ height: 80%;
+}
+.colour {
+ width: 50px;
+ height: 50px;
+ margin: 10px 20px;
+ padding: 3px;
+}
+#onered,
+#twored {
+ background-color: red;
+}
+#oneblue,
+#twoblue {
+ background-color: blue;
+}
+#onepurple,
+#twopurple {
+ background-color: purple;
+}
+#oneorange,
+#twoorange {
+ background-color: orange;
+}
+#onegreen,
+#twogreen {
+ background-color: green;
+}
+#onehotpink,
+#twohotpink {
+ background-color: hotpink;
+}
+#colours {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-evenly;
+ flex-wrap: wrap;
+}
+#colour-settings-form {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-template-rows: 1fr 1fr;
+ height: 80%;
+}
+#settings-1 {
+ grid-column: 1;
+ grid-row: 1;
+}
+#settings-2 {
+ grid-column: 2;
+ grid-row: 1;
+}
+#colour-settings-submit {
+ grid-column-start: 1;
+ grid-column-end: 3;
+ width: fit-content;
+ height: fit-content;
+ margin: 20px auto 0;
+ padding: 10px;
+}
+#settings-name {
+ text-align: center;
+}
