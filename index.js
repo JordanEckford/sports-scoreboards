@@ -472,7 +472,8 @@ function endGame() {
   playerOneScore.innerHTML = playerOneTotal;
   playerTwoScore.innerHTML = playerTwoTotal;
   enableColours([redBall]);
-  finalColourCheck = null;
+  finalRedColourCheck = null;
+  finalColourCheck = [];
  }
 }
 function handleFoulsAtEnd() {
