@@ -9,6 +9,24 @@ html {
  color: white;
  font-family: "Inconsolata", monospace;
 }
+#fullscreen-msg {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ background-color: aliceblue;
+ z-index: 3;
+ margin: 0;
+ color: black;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+#go-fs {
+ padding: 20px;
+ font-size: 30px;
+}
 h1 {
  display: flex;
  flex-direction: row;

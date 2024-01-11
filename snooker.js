@@ -30,6 +30,8 @@ const playerOneFrameCountContainer = document.getElementById("player-1-framecoun
 const playerTwoFrameCountContainer = document.getElementById("player-2-framecount");
 const resultsLoader = document.getElementById("results-loader");
 const goHomeButton = document.getElementById("go-home");
+// const fullScreenButton = document.getElementById("go-fs");
+// const fullScreenMesage = document.getElementById("fullscreen-msg");
 
 let playerOne = "";
 let playerTwo = "";
@@ -563,3 +565,14 @@ function loadPreviousResults() {
 goHomeButton.addEventListener("click", () => {
  location.href = "./index.html";
 });
+// fullScreenButton.addEventListener(
+//  "click",
+//  () => {
+//   const elem = document.documentElement;
+//   if (elem.requestFullscreen) {
+//    elem.requestFullscreen();
+//    fullScreenMesage.style.display = "none";
+//   }
+//  },
+//  false
+// );

@@ -186,6 +186,7 @@ resetScoresButton.addEventListener("click", () => {
  playerOneScore.innerHTML = playerOneTotal;
  playerTwoScore.innerHTML = playerTwoTotal;
  window.localStorage.poolAppData = JSON.stringify(poolAppData);
+ console.log("banana");
 });
 homeButton.addEventListener("click", () => {
  confirm("Go back to menu? All data will be lost!");
