@@ -17,6 +17,12 @@ const warningMessage = document.getElementById("warning-msg");
 const homeButton = document.getElementById("home");
 const fullScreenButton = document.getElementById("go-fs");
 const fullScreenMesage = document.getElementById("fullscreen-msg");
+const resetConfirmationContainer = document.getElementById("confirmation-container");
+const confirmReset = document.getElementById("confirm-reset");
+const cancelReset = document.getElementById("cancel-reset");
+const menuConfirmationContainer = document.getElementById("confirmation-menu-container");
+const confirmMenu = document.getElementById("confirm-menu");
+const cancelMenu = document.getElementById("cancel-menu");
 
 let touchStartY = 0;
 let touchEndY = 0;
@@ -178,7 +184,12 @@ playerTwoInput.addEventListener("change", (e) => {
  window.localStorage.poolAppData = JSON.stringify(poolAppData);
 });
 resetScoresButton.addEventListener("click", () => {
- confirm("Confirm to rest scores. Progress will be lost!");
+ resetConfirmationContainer.style.display = "grid";
+});
+cancelReset.addEventListener("click", () => {
+ resetConfirmationContainer.style.display = "none";
+});
+confirmReset.addEventListener("click", () => {
  poolAppData.playerOneTotal = 0;
  poolAppData.playerTwoTotal = 0;
  playerOneTotal = poolAppData.playerOneTotal;
@@ -186,13 +197,21 @@ resetScoresButton.addEventListener("click", () => {
  playerOneScore.innerHTML = playerOneTotal;
  playerTwoScore.innerHTML = playerTwoTotal;
  window.localStorage.poolAppData = JSON.stringify(poolAppData);
- console.log("banana");
+ resetConfirmationContainer.style.display = "none";
 });
 homeButton.addEventListener("click", () => {
- confirm("Go back to menu? All data will be lost!");
+ menuConfirmationContainer.style.display = "grid";
+});
+
+cancelMenu.addEventListener("click", () => {
+ menuConfirmationContainer.style.display = "none";
+});
+confirmMenu.addEventListener("click", () => {
  window.localStorage.removeItem("poolAppData");
  location.href = "./index.html";
+ menuConfirmationContainer.style.display = "none";
 });
+
 fullScreenButton.addEventListener(
  "click",
  () => {

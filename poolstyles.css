@@ -1,5 +1,6 @@
 * {
  font-family: "Inconsolata", monospace;
+ color: white;
 }
 html {
  background-color: rgb(10, 26, 59);
@@ -101,6 +102,7 @@ button {
  background-color: white;
  border: 1px solid black;
  border-radius: 5px;
+ color: black;
 }
 #colours-menu {
  position: absolute;
@@ -109,6 +111,8 @@ button {
  background-color: rgba(0, 0, 0, 0.836);
  width: 80%;
  height: 80%;
+ animation-name: fade;
+ animation-duration: 1s;
 }
 .colour {
  width: 50px;
@@ -204,6 +208,53 @@ button {
  padding: 50px;
  text-align: center;
 }
+#confirmation-container,
+#confirmation-menu-container {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 50vw;
+ height: 50vh;
+ background-color: rgba(0, 0, 0, 0.836);
+ z-index: 3;
+ margin: 0;
+ color: black;
+ display: grid;
+ justify-items: center;
+ grid-template-columns: 1fr 1fr;
+ grid-template-rows: 1fr 1fr;
+ translate: -50% -50%;
+ animation-name: fade;
+ animation-duration: 1s;
+ padding: 10px;
+}
+#confirm-msg,
+#menu-msg {
+ grid-column: 1;
+ grid-column-end: 3;
+ text-align: center;
+ align-self: center;
+ margin: 0;
+ font-size: 30px;
+}
+#confirm-reset,
+#cancel-reset,
+#confirm-menu,
+#cancel-menu {
+ width: fit-content;
+ height: fit-content;
+ align-self: center;
+ font-size: 20px;
+}
+@keyframes fade {
+ 0% {
+  opacity: 0;
+ }
+ 100% {
+  opacity: 100;
+ }
+}
+
 .hidden {
  display: none;
 }
