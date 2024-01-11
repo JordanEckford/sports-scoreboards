@@ -89,7 +89,12 @@ main {
 #reset-scores {
  position: absolute;
  top: 5px;
- left: 120px;
+ left: 85px;
+}
+#home {
+ position: absolute;
+ top: 5px;
+ right: 125px;
 }
 button {
  padding: 5px;

@@ -14,6 +14,7 @@ const settingsOne = document.getElementById("settings-1");
 const settingsTwo = document.getElementById("settings-2");
 const resetScoresButton = document.getElementById("reset-scores");
 const warningMessage = document.getElementById("warning-msg");
+const homeButton = document.getElementById("home");
 
 let touchStartY = 0;
 let touchEndY = 0;
@@ -183,4 +184,9 @@ resetScoresButton.addEventListener("click", () => {
  playerOneScore.innerHTML = playerOneTotal;
  playerTwoScore.innerHTML = playerTwoTotal;
  window.localStorage.poolAppData = JSON.stringify(poolAppData);
+});
+homeButton.addEventListener("click", () => {
+ confirm("Go back to menu? All data will be lost!");
+ window.localStorage.removeItem("poolAppData");
+ location.href = "./index.html";
 });

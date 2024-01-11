@@ -29,6 +29,7 @@ const endFrameButton = document.getElementById("end-frame");
 const playerOneFrameCountContainer = document.getElementById("player-1-framecount");
 const playerTwoFrameCountContainer = document.getElementById("player-2-framecount");
 const resultsLoader = document.getElementById("results-loader");
+const goHomeButton = document.getElementById("go-home");
 
 let playerOne = "";
 let playerTwo = "";
@@ -559,3 +560,6 @@ function loadPreviousResults() {
   resultsLoader.innerHTML = "Hide Results";
  }
 }
+goHomeButton.addEventListener("click", () => {
+ location.href = "./index.html";
+});
