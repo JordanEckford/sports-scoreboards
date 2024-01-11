@@ -1,13 +1,27 @@
 * {
  font-family: "Inconsolata", monospace;
+ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 html {
- background-image: url("./pool.jpg");
+ /* background-image: url("./pool.jpg"); */
+ background-color: #46724c;
  background-repeat: no-repeat;
  background-size: 100% 100%;
  background-attachment: fixed;
  color: white;
  font-family: "Inconsolata", monospace;
+}
+button {
+ margin: 10px auto;
+ border-radius: 10px;
+ padding: 5px 10px;
+ font-size: 20px;
+ font-weight: 600;
+ border: 1px solid black;
+ background-color: #5c8d62;
+ color: white;
+ box-shadow: rgba(0, 0, 0, 0.815) 0px 3px 8px;
+ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 #fullscreen-msg {
  position: absolute;
@@ -33,16 +47,24 @@ h1 {
  align-content: center;
  justify-content: center;
  color: white;
- margin-top: 0px;
- padding-top: 30px;
- text-decoration: underline;
+ margin: 0px;
+ padding: 10px;
+ background-image: linear-gradient(to right, #204225, #2f6437);
+ border-bottom: 1px solid white;
+ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+ box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+ width: 100vw;
+ /* text-decoration: underline; */
 }
 body {
  width: 100%;
- max-width: 1000px;
  height: 100%;
- margin: 0 auto;
+ margin: 0;
  padding: 0;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }
 #name-form {
  width: 80%;
@@ -70,7 +92,9 @@ label {
  display: grid;
  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
  grid-template-rows: 80px 30px 30px;
- margin-top: 10px;
+ /* margin-top: 10px; */
+ padding: 10px;
+ /* border: 1px solid white; */
 }
 #scoreboard-labels {
  display: flex;
@@ -169,6 +193,9 @@ h3 {
  align-content: center;
  justify-content: center;
  margin: 0px auto;
+ padding: 10px 0;
+ /* background-color: #346b3c; */
+ /* border-bottom: 1px solid white; */
 }
 #other-moves,
 #revert {
@@ -190,6 +217,7 @@ h3 {
  border-radius: 20px;
  padding: 5px;
  box-shadow: 1px 1px 5px;
+ color: black;
 }
 #black {
  background-color: rgb(0, 0, 0);
@@ -285,17 +313,7 @@ ul {
   opacity: 100;
  }
 }
-button {
- margin: 10px auto;
- border-radius: 10px;
- padding: 5px 10px;
- font-size: 20px;
- font-weight: 600;
- border: 1px solid black;
- background-color: #5c8d62;
- color: white;
- box-shadow: rgba(0, 0, 0, 0.815) 0px 3px 8px;
-}
+
 .disabled {
  margin: 5px auto;
  border: black 1px solid;
