@@ -16,6 +16,7 @@ const resetScoresButton = document.getElementById("reset-scores");
 const warningMessage = document.getElementById("warning-msg");
 const homeButton = document.getElementById("home");
 const fullScreenButton = document.getElementById("go-fs");
+const fullScreenMesage = document.getElementById("fullscreen-msg");
 
 let touchStartY = 0;
 let touchEndY = 0;
@@ -197,6 +198,7 @@ fullScreenButton.addEventListener(
   const elem = document.documentElement;
   if (elem.requestFullscreen) {
    elem.requestFullscreen();
+   fullScreenMesage.style.display = "none";
   }
  },
  false
