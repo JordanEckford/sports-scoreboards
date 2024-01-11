@@ -207,6 +207,7 @@ button {
 #warning-txt {
  padding: 50px;
  text-align: center;
+ color: black;
 }
 #confirmation-container,
 #confirmation-menu-container {
