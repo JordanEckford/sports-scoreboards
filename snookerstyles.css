@@ -10,7 +10,6 @@ html {
  background-attachment: fixed;
  color: white;
  font-family: "Inconsolata", monospace;
- overflow: hidden;
 }
 button {
  margin: 10px auto;
