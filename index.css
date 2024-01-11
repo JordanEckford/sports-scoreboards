@@ -1,0 +1,54 @@
+* {
+ font-family: "Inconsolata", monospace;
+}
+html,
+body {
+ margin: 0;
+ padding: 0;
+ color: black;
+ background-color: aliceblue;
+}
+#sport-image {
+ width: 80vw;
+ margin: 0 auto;
+ border-radius: 99999px;
+ border: 1px solid black;
+}
+#img-container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+h1 {
+ text-align: center;
+ background-image: linear-gradient(to right, rgb(0, 101, 168), rgb(96, 138, 167));
+ margin: 0 auto;
+ padding: 10px 10px 10px;
+ color: white;
+ border-bottom: 1px solid black;
+}
+#game {
+ color: black;
+ font-size: 40px;
+ background-color: #e4f0fa;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ border-radius: 10px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ padding: 10px;
+ margin: 20px 10px;
+ text-align: center;
+}
+a {
+ text-decoration: none;
+}
+a:visited {
+ text-decoration: none;
+ color: black;
+}
+img {
+ width: 50px;
+ border-radius: 99999px;
+}

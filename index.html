@@ -3,86 +3,22 @@
  <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snooker Scoreboard</title>
-  <script defer src="./index.js"></script>
-  <link href="./styles.css" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-</head>
+  <title>Sports Scoreboards</title>
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet" />
+ </head>
  <body>
-  <h1>Snooker Scoreboard</h1>
-  <div id="name-form-container" class="">
-  <form id="name-form">
-   <label for="player-1-name">Player 1:</label>
-   <input id="player-1-name" required />
-   <label for="player-2-name">Player 2:</label>
-   <input id="player-2-name" required />
-   <button id="start-game-button" type="submit">Start Game!</button>
-  </form>
-</div>
-  <div id="bulk" class="hidden">
-  <section id="scoreboard">
-    <div id="player-1-tile" class="current">
-      <h2 id="player-1"></h2>
-    </div>
-    <div id="timer">
-      <p id="time-label">Frame Time  </p>
-      <div id="time-container">
-        <p id="mins-elapsed">0:</p>
-        <p id="secs-elapsed">00</p>
-      </div>
-    </div>
-    <h3 id="player-1-framecount">0</h3>
-      <h3 id="player-1-score"></h3>
-      <h4 id="frames-label">Frames</h4>
-      <h4 id="score-label">Score</h4>
-    <div id="player-2-tile" class="">
-        <h2 id="player-2"></h2>
-    </div>
-    <h3 id="player-2-framecount">0</h3>
-    <h3 id="player-2-score"></h3>
-</section>
-  <main>
-    
-    <section id="balls">
-        <button class="ball" id="black"></button>
-        <button class="ball" id="pink"></button>
-        <button class="ball" id="blue"></button>
-        <div id="low-colours">
-          <button class="ball" id="green"></button>
-        <button class="ball" id="brown"></button>
-        <button class="ball" id="yellow"></button>
-        </div>
-        <button class="ball" id="red">15</button>
-      </section>
-
-      <p id="foul-msg" class="hidden">Select ball fouled on <br/> (click to cancel)</p>
-
-      <section id="other-moves">
-      <button id="foul">Foul</button>
-      <button id="safety">Safety</button>
-      <button id="miss">Miss</button>
-    </section>
-    <section id="revert">
-      <button id="undo" class="hidden">Undo</button>
-      <button id="end-frame">End Frame</button>
-      <button id="redo" class="hidden">Redo</button>
-    </section>
-    <section id="red-modifier">
-      <p id="minus-red">-</p>
-      <p>Adjust Reds</p>
-      <p id="add-red">+</p>
-    </section>
-    <div id="return-to-names">
-      <button id="change-name" class="hidden">Change Names</button>
-      <button id="results-loader">Load Results</button>
-    </div>
-    <div id="result-container" class="hidden">
-    <section id="results" >
-    </section>
+  <h1>Sports Scoreboards</h1>
+  <a href="./snooker.html"
+   ><p id="game">Snooker Scoreboard <img src="sports.jpeg" /></p
+  ></a>
+  <a href="./pool.html"
+   ><p id="game">Pool Scoreboard<img src="sports.jpeg" /></p
+  ></a>
+  <div id="img-container">
+   <img src="./sports1.jpeg" id="sport-image" />
   </div>
-  </div>
-  </main>
  </body>
 </html>

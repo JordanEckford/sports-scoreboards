@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./poolstyles.css" />
+  <script defer src="./pool.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet" />
+  <title>Pool Scoreboard</title>
+ </head>
+ <body>
+  <div id="warning-msg" class="hidden">
+   <h2 id="warning-txt">Turn screen landscape and refresh!</h2>
+  </div>
+  <h1>Pool Scoreboard</h1>
+  <button id="lock-names">Lock names</button>
+  <button id="colour-settings">Colours</button>
+  <button id="reset-scores">Reset</button>
+  <button id="home">Home</button>
+  <div id="colours-menu" class="hidden">
+   <form action="" id="colour-settings-form">
+    <div id="settings-1">
+     <h3 id="settings-name">Player 1</h3>
+     <div id="colours">
+      <div id="onered" class="colour"></div>
+      <div id="oneblue" class="colour"></div>
+      <div id="onepurple" class="colour"></div>
+      <div id="oneorange" class="colour"></div>
+      <div id="onegreen" class="colour"></div>
+      <div id="onehotpink" class="colour"></div>
+     </div>
+    </div>
+    <div id="settings-2">
+     <h3 id="settings-name">Player 2</h3>
+     <div id="colours">
+      <div id="twored" class="colour"></div>
+      <div id="twoblue" class="colour"></div>
+      <div id="twopurple" class="colour"></div>
+      <div id="twoorange" class="colour"></div>
+      <div id="twogreen" class="colour"></div>
+      <div id="twohotpink" class="colour"></div>
+     </div>
+    </div>
+    <button type="submit" id="colour-settings-submit">Submit</button>
+   </form>
+  </div>
+
+  <main>
+   <div id="red-side">
+    <h3 id="player-1"><input id="player-1-input" placeholder="enter name" /></h3>
+    <h2 id="player-1-score">0</h2>
+   </div>
+   <div id="blue-side">
+    <h3 id="player-2"><input id="player-2-input" placeholder="enter name" /></h3>
+    <h2 id="player-2-score">0</h2>
+   </div>
+  </main>
+ </body>
+</html>
