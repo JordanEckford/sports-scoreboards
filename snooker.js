@@ -437,7 +437,9 @@ minusRed.addEventListener("click", () => {
   redBall.innerHTML = totalRedsLeft;
  }
  if (totalRedsLeft === 0) {
-  disableColours([redBall]);
+  finalRedColourCheck = true;
+  disableColours([...ballsArray, redBall]);
+  enableColours([yellowBall]);
  }
 });
 endFrameButton.addEventListener("click", () => {
@@ -487,6 +489,7 @@ function endGame() {
   playerTwoTotal = 0;
   playerOneScore.innerHTML = playerOneTotal;
   playerTwoScore.innerHTML = playerTwoTotal;
+  disableColours(ballsArray);
   enableColours([redBall]);
   finalRedColourCheck = null;
   finalColourCheck = [];
@@ -528,12 +531,6 @@ function foulShot(amount) {
   playerOneScore.innerHTML = playerOneTotal;
  }
 }
-//add scores to the bottom???
-
-// const test = document.createElement("p");
-// test.innerHTML = window.localStorage.player2;
-// document.getElementById("results").appendChild(test);
-
 resultsLoader.addEventListener("click", () => {
  loadPreviousResults();
 });
@@ -565,14 +562,3 @@ function loadPreviousResults() {
 goHomeButton.addEventListener("click", () => {
  location.href = "./index.html";
 });
-// fullScreenButton.addEventListener(
-//  "click",
-//  () => {
-//   const elem = document.documentElement;
-//   if (elem.requestFullscreen) {
-//    elem.requestFullscreen();
-//    fullScreenMesage.style.display = "none";
-//   }
-//  },
-//  false
-// );
