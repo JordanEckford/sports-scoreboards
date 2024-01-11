@@ -23,6 +23,9 @@ const cancelReset = document.getElementById("cancel-reset");
 const menuConfirmationContainer = document.getElementById("confirmation-menu-container");
 const confirmMenu = document.getElementById("confirm-menu");
 const cancelMenu = document.getElementById("cancel-menu");
+const helpMenuContainer = document.getElementById("help-menu-container");
+const closeHelp = document.getElementById("close-help");
+const openHelp = document.getElementById("help");
 
 let touchStartY = 0;
 let touchEndY = 0;
@@ -210,6 +213,12 @@ confirmMenu.addEventListener("click", () => {
  window.localStorage.removeItem("poolAppData");
  location.href = "./index.html";
  menuConfirmationContainer.style.display = "none";
+});
+openHelp.addEventListener("click", () => {
+ helpMenuContainer.style.display = "grid";
+});
+closeHelp.addEventListener("click", () => {
+ helpMenuContainer.style.display = "none";
 });
 
 fullScreenButton.addEventListener(

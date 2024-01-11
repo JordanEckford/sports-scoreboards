@@ -77,7 +77,7 @@ main {
 ::placeholder {
  color: white;
 }
-#lock-names {
+#reset-scores {
  position: absolute;
  top: 15px;
  right: 10px;
@@ -87,7 +87,7 @@ main {
  top: 15px;
  left: 10px;
 }
-#reset-scores {
+#lock-names {
  position: absolute;
  top: 15px;
  left: 85px;
@@ -95,10 +95,16 @@ main {
 #home {
  position: absolute;
  top: 15px;
+ right: 70px;
+}
+#help {
+ position: absolute;
+ top: 15px;
  right: 125px;
 }
 button {
  padding: 5px;
+ font-size: 16px;
  background-color: white;
  border: 1px solid black;
  border-radius: 5px;
@@ -210,8 +216,21 @@ button {
  text-align: center;
  color: black;
 }
+#help-msg {
+ grid-row: 1;
+ grid-column-start: 1;
+ grid-column-end: 3;
+}
+#close-help {
+ grid-row: 2;
+ grid-column-start: 1;
+ grid-column-end: 3;
+ height: fit-content;
+ width: fit-content;
+}
 #confirmation-container,
-#confirmation-menu-container {
+#confirmation-menu-container,
+#help-menu-container {
  position: absolute;
  top: 50%;
  left: 50%;
