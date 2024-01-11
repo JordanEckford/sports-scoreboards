@@ -26,7 +26,7 @@ h1 {
  color: white;
  margin: 0 auto;
  width: 100vw;
- padding: 0;
+ padding: 10px 0;
  border-bottom: solid 2px white;
 }
 main {
@@ -79,22 +79,22 @@ main {
 }
 #lock-names {
  position: absolute;
- top: 5px;
+ top: 15px;
  right: 10px;
 }
 #colour-settings {
  position: absolute;
- top: 5px;
+ top: 15px;
  left: 10px;
 }
 #reset-scores {
  position: absolute;
- top: 5px;
+ top: 15px;
  left: 85px;
 }
 #home {
  position: absolute;
- top: 5px;
+ top: 15px;
  right: 125px;
 }
 button {
