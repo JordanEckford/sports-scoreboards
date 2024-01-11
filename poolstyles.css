@@ -186,6 +186,7 @@ button {
  margin: 0;
  color: black;
  display: flex;
+ flex-direction: column;
  justify-content: center;
  align-items: center;
 }
@@ -254,6 +255,9 @@ button {
  100% {
   opacity: 100;
  }
+}
+#fs-text {
+ color: black;
 }
 
 .hidden {

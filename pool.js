@@ -218,8 +218,8 @@ fullScreenButton.addEventListener(
   const elem = document.documentElement;
   if (elem.requestFullscreen) {
    elem.requestFullscreen();
-   fullScreenMesage.style.display = "none";
   }
+  fullScreenMesage.style.display = "none";
  },
  false
 );
