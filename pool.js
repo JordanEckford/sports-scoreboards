@@ -15,6 +15,7 @@ const settingsTwo = document.getElementById("settings-2");
 const resetScoresButton = document.getElementById("reset-scores");
 const warningMessage = document.getElementById("warning-msg");
 const homeButton = document.getElementById("home");
+const fullScreenButton = document.getElementById("go-fs");
 
 let touchStartY = 0;
 let touchEndY = 0;
@@ -190,3 +191,13 @@ homeButton.addEventListener("click", () => {
  window.localStorage.removeItem("poolAppData");
  location.href = "./index.html";
 });
+fullScreenButton.addEventListener(
+ "click",
+ () => {
+  const elem = document.documentElement;
+  if (elem.requestFullscreen) {
+   elem.requestFullscreen();
+  }
+ },
+ false
+);
