@@ -12,9 +12,9 @@
   <link rel="icon" href="./favicon.png" />
  </head>
  <body>
-  <div id="warning-msg" class="hidden">
+  <!-- <div id="warning-msg" class="hidden">
    <h2 id="warning-txt" class="">Turn screen landscape and refresh!</h2>
-  </div>
+  </div> -->
   <div id="fullscreen-msg" class="">
    <button id="go-fs">Click to go Full Screen!</button>
    <p id="fs-text">(Not supported on some devices)</p>
@@ -37,12 +37,16 @@
    </p>
    <button id="close-help">Close</button>
   </div>
-  <h1>Pool Scoreboard</h1>
-  <button id="lock-names">Lock names</button>
-  <button id="colour-settings">Colours</button>
-  <button id="reset-scores">Reset</button>
-  <button id="home">Home</button>
-  <button id="help">Help</button>
+  <nav id="top-bar">
+   <div id="buttons">
+    <button id="lock-names">Lock names</button>
+    <button id="colour-settings">Colours</button>
+    <button id="reset-scores">Reset</button>
+    <button id="home">Home</button>
+    <button id="help">Help</button>
+   </div>
+   <h1>Pool Scoreboard</h1>
+  </nav>
   <div id="colours-menu" class="hidden">
    <form action="" id="colour-settings-form">
     <div id="settings-1">

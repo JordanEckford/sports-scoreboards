@@ -9,6 +9,8 @@ html {
  font-family: "Inconsolata", monospace;
  padding: 0;
  margin: 0;
+ max-height: 100vh;
+ overflow: hidden;
 }
 body {
  width: 100%;
@@ -19,20 +21,35 @@ body {
  max-height: 100vh;
  overflow: hidden;
 }
-h1 {
+#top-bar {
+ display: flex;
+ flex-direction: column;
+ align-content: end;
+ justify-content: space-between;
+ height: 15vh;
+ width: 100%;
+ border-bottom: 1px solid white;
+}
+#buttons {
  display: flex;
  flex-direction: row;
+ justify-content: space-around;
+ margin-top: 0px;
+}
+h1 {
+ display: flex;
+ flex-direction: column;
  align-content: center;
  justify-content: center;
+ text-align: center;
  color: white;
  margin: 0 auto;
  width: 100vw;
- padding: 10px 0;
- border-bottom: solid 2px white;
+ padding: 0;
 }
 main {
  width: 100vw;
- height: 100%;
+ height: 90vh;
  display: flex;
  margin: 0;
  padding: 0;
@@ -78,7 +95,7 @@ main {
 ::placeholder {
  color: white;
 }
-#reset-scores {
+/* #reset-scores {
  position: absolute;
  top: 15px;
  right: 10px;
@@ -102,7 +119,7 @@ main {
  position: absolute;
  top: 15px;
  right: 125px;
-}
+} */
 button {
  padding: 5px;
  font-size: 16px;
@@ -284,4 +301,37 @@ button {
 
 .hidden {
  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+ #top-bar {
+  height: 10vh;
+  padding: 0;
+ }
+ main {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+ }
+ #red-side {
+  width: 100%;
+  height: 50%;
+  background-color: rgb(252, 36, 36);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
+ #blue-side {
+  width: 100%;
+  height: 50%;
+  background-color: rgb(43, 43, 253);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ }
 }

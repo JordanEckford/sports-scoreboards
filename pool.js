@@ -13,7 +13,7 @@ const colourSettingsForm = document.getElementById("colour-settings-form");
 const settingsOne = document.getElementById("settings-1");
 const settingsTwo = document.getElementById("settings-2");
 const resetScoresButton = document.getElementById("reset-scores");
-const warningMessage = document.getElementById("warning-msg");
+// const warningMessage = document.getElementById("warning-msg");
 const homeButton = document.getElementById("home");
 const fullScreenButton = document.getElementById("go-fs");
 const fullScreenMesage = document.getElementById("fullscreen-msg");
@@ -35,9 +35,9 @@ let playerOneColour = "red";
 let playerTwoColour = "blue";
 let locked;
 
-if (window.innerWidth < 500) {
- warningMessage.className = "";
-}
+// if (window.innerWidth < 500) {
+//  warningMessage.className = "";
+// }
 
 let poolAppData = {
  playerOneTotal: 0,
