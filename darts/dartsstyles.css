@@ -7,15 +7,9 @@ h1 {
  text-align: center;
  width: 100%;
  margin: 0;
+ height: 5vh;
  color: white;
  background-image: linear-gradient(to right, rgb(66, 41, 126), rgb(132, 0, 255));
-}
-
-#dart-scores {
- display: flex;
- flex-direction: column;
- flex-wrap: wrap;
- height: 320px;
 }
 .scores {
  display: flex;
@@ -31,8 +25,9 @@ button {
 }
 #scoreboard {
  display: grid;
- grid-template-columns: 1fr 1fr;
- grid-template-rows: 1fr 1fr 1fr;
+ grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+ grid-template-rows: 1fr 1fr 1fr 1fr;
+ width: 99vw;
  align-items: center;
  justify-content: center;
  border: solid black 1px;
@@ -41,15 +36,42 @@ button {
 .darts {
  width: 50px;
 }
+#player-1-name {
+ grid-column-start: 1;
+ grid-column-end: 3;
+ grid-row: 1;
+}
+#player-2-name {
+ grid-column-start: 4;
+ grid-column-end: 6;
+ grid-row: 1;
+}
+#player-1-darts {
+ grid-column-start: 1;
+ grid-column-end: 3;
+ grid-row: 3;
+}
+#player-2-darts {
+ grid-column-start: 4;
+ grid-column-end: 6;
+ grid-row: 3;
+ border: solid red 11px;
+}
+#player-1-score-container {
+ grid-column-start: 1;
+ grid-column-end: 3;
+ grid-row: 4;
+}
+#player-2-score-container {
+ grid-column-start: 4;
+ grid-column-end: 6;
+ grid-row: 4;
+}
 #player-1-darts,
 #player-2-darts {
  display: flex;
  flex-direction: row;
  justify-content: center;
-}
-#player-1-score-container,
-#player-2-score-container {
- grid-row: 3;
 }
 #player-1-name,
 #player-2-name,
@@ -104,5 +126,28 @@ button {
 }
 #finishers-container {
  height: 100%;
- border: solid 2px red;
+ /* border: solid 2px red; */
+ height: 30vh;
+}
+.result-list {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ justify-content: flex-start;
+ align-items: center;
+ max-height: 20vh;
+ list-style: none;
+ padding: 0;
+ margin-block-start: 0;
+ margin-block-end: 0;
+ margin-inline-start: 0px;
+ margin-inline-end: 0px;
+ padding-inline-start: 0;
+ margin-top: 5px;
+}
+.finisher {
+ border: 1px solid black;
+ border-radius: 5px;
+ padding: 2px;
+ margin: 2px;
 }

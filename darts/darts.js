@@ -26,6 +26,8 @@ const numbers = {
 let currentPlayer = 1;
 let playerOneScore = 501;
 let playerTwoScore = 501;
+let playerOneMatchCount = 0;
+let playerTwoMatchCount = 0;
 let dartsRemaining = 3;
 let currentScore = 0;
 let possibleFinishers = null;
@@ -52,6 +54,15 @@ function removeDarts(currentPlayer) {
    dartOne1.src = "./darts/blank.png";
   }
  }
+ if (currentPlayer === 2) {
+  if (dartsRemaining === 2) {
+   dartTwo3.src = "./darts/blank.png";
+  } else if (dartsRemaining === 1) {
+   dartTwo2.src = "./darts/blank.png";
+  } else if (dartsRemaining === 0) {
+   dartTwo1.src = "./darts/blank.png";
+  }
+ }
 }
 function resetDarts() {
  if (currentPlayer === 1) {
@@ -62,31 +73,71 @@ function resetDarts() {
  if (currentPlayer === 2) {
   dartTwo1.src = "./darts/dart2.png";
   dartTwo2.src = "./darts/dart2.png";
-  dartTwo2.src = "./darts/dart2.png";
+  dartTwo3.src = "./darts/dart2.png";
  }
+}
+function bustPlayer() {
+ if (currentPlayer === 1) {
+  dartOne1.src = "./darts/blank.png";
+  dartOne2.src = "./darts/blank.png";
+  dartOne3.src = "./darts/blank.png";
+ }
+ if (currentPlayer === 2) {
+  dartTwo1.src = "./darts/blank.png";
+  dartTwo2.src = "./darts/blank.png";
+  dartTwo3.src = "./darts/blank.png";
+ }
+ currentPlayer = currentPlayer === 1 ? 2 : 1;
+ resetDarts();
 }
 
 function removeScores(player, score) {
+ let bust = false;
  if (player === 1) {
   playerOneScore -= score;
-  playerOneScoreContainer.innerHTML = playerOneScore;
- } else {
+  if (playerOneScore < 0) {
+   playerOneScore += score;
+   bust = true;
+  } else {
+   playerOneScoreContainer.innerHTML = playerOneScore;
+   endGameCheck();
+  }
+ } else if (player === 2) {
   playerTwoScore -= score;
-  playerTwoScoreContainer.innerHTML = playerTwoScore;
+  if (playerTwoScore < 0) {
+   playerTwoScore += score;
+   bust = true;
+  } else {
+   playerTwoScoreContainer.innerHTML = playerTwoScore;
+   endGameCheck();
+  }
  }
- currentScore = 0;
- scoreContainer.innerHTML = 0;
- dartsRemaining--;
- removeDarts(currentPlayer);
- if (dartsRemaining === 0) {
-  currentPlayer = currentPlayer === 1 ? 2 : 1;
-  resetDarts();
-  dartsRemaining = 3;
- }
- if (currentPlayer === 1) {
-  addFinishers(playerOneScore);
- } else {
-  addFinishers(playerTwoScore);
+ if (bust === false) {
+  currentScore = 0;
+  scoreContainer.innerHTML = 0;
+  dartsRemaining--;
+  removeDarts(currentPlayer);
+  if (dartsRemaining === 0) {
+   currentPlayer = currentPlayer === 1 ? 2 : 1;
+   resetDarts();
+   dartsRemaining = 3;
+  }
+  if (currentPlayer === 1) {
+   addFinishers(playerOneScore);
+  } else {
+   addFinishers(playerTwoScore);
+  }
+ } else if (bust === true) {
+  scoreContainer.innerHTML = "Bust";
+  scoreContainer.style.color = "red";
+  setTimeout(() => {
+   currentScore = 0;
+   scoreContainer.innerHTML = currentScore;
+   scoreContainer.style.color = "black";
+   bust = false;
+   bustPlayer();
+   dartsRemaining = 3;
+  }, 1000);
  }
 }
 
@@ -94,6 +145,8 @@ function addFinishers(currentPlayerScore) {
  if (finishersContainer.children.length !== 0) {
   const elements = document.getElementsByClassName("finisher");
   while (elements.length > 0) elements[0].remove();
+  const oldList = document.getElementById("result-list");
+  oldList.remove();
  }
  possibleFinishers = dartsFinishers(currentPlayerScore, dartsRemaining);
  if (possibleFinishers === null) {
@@ -101,6 +154,7 @@ function addFinishers(currentPlayerScore) {
  }
  const list = document.createElement("ul");
  list.className = "result-list";
+ list.id = "result-list";
  possibleFinishers.forEach((finisher) => {
   let element = document.createElement("li");
   element.className = "finisher";
@@ -110,7 +164,14 @@ function addFinishers(currentPlayerScore) {
  finishersContainer.appendChild(list);
 }
 
-addFinishers();
+function endGameCheck() {
+ if (playerOneScore === 0) {
+  console.log("WoOO");
+ }
+ if (playerTwoScore === 0) {
+  console.log("WoOO");
+ }
+}
 
 function dartsFinishers(score, darts) {
  const results = [];
