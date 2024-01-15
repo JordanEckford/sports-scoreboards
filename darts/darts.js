@@ -34,11 +34,23 @@ let possibleFinishers = null;
 
 numbersPad.addEventListener("click", (e) => {
  if (numbers[e.target.id] !== undefined) {
+  document.getElementById(e.target.id).style.backgroundColor = "rgb(121, 79, 224)";
+  setTimeout(() => {
+   document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
+  }, 100);
   scoreContainer.innerHTML === "0" ? (scoreContainer.innerHTML = numbers[e.target.id]) : (scoreContainer.innerHTML += numbers[e.target.id]);
  } else if (e.target.id === "backspace") {
+  document.getElementById(e.target.id).style.backgroundColor = "rgb(121, 79, 224)";
+  setTimeout(() => {
+   document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
+  }, 100);
   scoreContainer.innerHTML = scoreContainer.innerHTML.slice(0, scoreContainer.innerHTML.length - 1);
   if (scoreContainer.innerHTML === "") scoreContainer.innerHTML = 0;
  } else if (e.target.id === "confirm") {
+  document.getElementById(e.target.id).style.backgroundColor = "rgb(121, 79, 224)";
+  setTimeout(() => {
+   document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
+  }, 100);
   currentScore = +scoreContainer.innerHTML;
   removeScores(currentPlayer, currentScore);
  }
@@ -167,6 +179,7 @@ function addFinishers(currentPlayerScore) {
 function endGameCheck() {
  if (playerOneScore === 0) {
   console.log("WoOO");
+  playerOneMatchCount++;
  }
  if (playerTwoScore === 0) {
   console.log("WoOO");
