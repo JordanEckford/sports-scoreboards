@@ -1,0 +1,108 @@
+html,
+body {
+ margin: 0;
+ padding: 0;
+}
+h1 {
+ text-align: center;
+ width: 100%;
+ margin: 0;
+ color: white;
+ background-image: linear-gradient(to right, rgb(66, 41, 126), rgb(132, 0, 255));
+}
+
+#dart-scores {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ height: 320px;
+}
+.scores {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ width: 50%;
+}
+button {
+ margin: 5px 10px;
+}
+#dart-board {
+ width: 100vw;
+}
+#scoreboard {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-template-rows: 1fr 1fr 1fr;
+ align-items: center;
+ justify-content: center;
+ border: solid black 1px;
+ height: 30vh;
+}
+.darts {
+ width: 50px;
+}
+#player-1-darts,
+#player-2-darts {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+}
+#player-1-score-container,
+#player-2-score-container {
+ grid-row: 3;
+}
+#player-1-name,
+#player-2-name,
+#player-1-score-container,
+#player-2-score-container {
+ text-align: center;
+}
+#scores {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+ text-align: center;
+ align-items: center;
+ position: fixed;
+ left: 0;
+ bottom: 1px;
+ width: 100%;
+ height: 40vh;
+}
+#score-container {
+ grid-row: 1;
+ grid-column-start: 1;
+ grid-column-end: 4;
+ text-align: center;
+ align-self: flex-end;
+ border: 1px solid black;
+ font-size: 25px;
+ padding: 10px;
+ height: 30px;
+ margin: 0;
+}
+#n0 {
+ grid-column: 2;
+}
+#n1,
+#n2,
+#n3,
+#n4,
+#n5,
+#n6,
+#n7,
+#n8,
+#n9,
+#n0,
+#confirm,
+#backspace {
+ border: solid 1px black;
+ height: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+#finishers-container {
+ height: 100%;
+ border: solid 2px red;
+}
