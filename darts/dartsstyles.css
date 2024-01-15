@@ -55,7 +55,6 @@ button {
  grid-column-start: 4;
  grid-column-end: 6;
  grid-row: 3;
- border: solid red 11px;
 }
 #player-1-score-container {
  grid-column-start: 1;
