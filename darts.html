@@ -12,7 +12,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet" />
  </head>
  <body>
-  <h1>Darts Scoreboard</h1>
+  <div id="fullscreen-msg" class="">
+   <button id="go-fs">Click to go Full Screen!</button>
+   <p id="fs-text">(Not supported on some devices)</p>
+  </div>
+  <div id="confirmation-menu-container" class="hidden" style="display: none">
+   <p id="menu-msg">Return to Main Menu? All data will be lost</p>
+   <button id="confirm-menu">Confirm</button>
+   <button id="cancel-menu">Cancel</button>
+  </div>
+  <div id="help-menu-container" class="hidden" style="display: none">
+   <p id="help-msg">
+    Enter score for every dart <br />
+    Busts, additions and player changes will be handled <br />
+    Darts below names represent how many shots are left <br />
+   </p>
+   <button id="close-help">Close</button>
+  </div>
+  <div id="navbar">
+   <div id="buttons">
+    <button id="home-button">Home</button>
+    <button id="help-button">Help</button>
+   </div>
+   <h1>Darts Scoreboard</h1>
+  </div>
 
   <section id="scoreboard">
    <h2 id="player-1-name">Player 1</h2>
@@ -35,7 +58,15 @@
    <h3 id="player-1-score-container">501</h3>
    <h3 id="player-2-score-container">501</h3>
   </section>
-  <div id="finishers-container"></div>
+  <div id="information-container">
+   <ol id="player-one-history">
+    <li class="history-fixed">501</li>
+   </ol>
+   <div id="finishers-container"></div>
+   <ol id="player-two-history">
+    <li class="history-fixed">501</li>
+   </ol>
+  </div>
   <section id="scores">
    <h4 id="score-container">0</h4>
    <div id="n1">1</div>
@@ -47,9 +78,9 @@
    <div id="n7">7</div>
    <div id="n8">8</div>
    <div id="n9">9</div>
-   <div id="backspace">X</div>
+   <div id="backspace"><img id="backspace-img" src="./darts/backspace.png" /></div>
    <div id="n0">0</div>
-   <div id="confirm">Y</div>
+   <div id="confirm"><img id="confirm-img" src="./darts/confirm.png" /></div>
   </section>
   <!-- <img src="./darts/dartboard.png" id="dart-board"/> -->
  </body>

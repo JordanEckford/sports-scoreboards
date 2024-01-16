@@ -11,6 +11,17 @@ const dartOne3 = document.getElementById("dart3-1");
 const dartTwo1 = document.getElementById("dart1-2");
 const dartTwo2 = document.getElementById("dart2-2");
 const dartTwo3 = document.getElementById("dart3-2");
+const playerOneHistoryContainer = document.getElementById("player-one-history");
+const playerTwoHistoryContainer = document.getElementById("player-two-history");
+const homeButton = document.getElementById("home-button");
+const menuConfirmationContainer = document.getElementById("confirmation-menu-container");
+const confirmMenu = document.getElementById("confirm-menu");
+const cancelMenu = document.getElementById("cancel-menu");
+const helpMenuContainer = document.getElementById("help-menu-container");
+const closeHelp = document.getElementById("close-help");
+const helpButton = document.getElementById("help-button");
+const fullScreenButton = document.getElementById("go-fs");
+const fullScreenMesage = document.getElementById("fullscreen-msg");
 
 const numbers = {
  n1: 1,
@@ -26,12 +37,14 @@ const numbers = {
 };
 
 let currentPlayer = 1;
+let playerStarted = 1;
 let playerOneScore = 501;
 let playerTwoScore = 501;
 let playerOneMatchCount = 0;
 let playerTwoMatchCount = 0;
 let dartsRemaining = 3;
 let currentScore = 0;
+let turnScore = 0;
 let possibleFinishers = null;
 
 numbersPad.addEventListener("click", (e) => {
@@ -41,17 +54,19 @@ numbersPad.addEventListener("click", (e) => {
    document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
   }, 100);
   scoreContainer.innerHTML === "0" ? (scoreContainer.innerHTML = numbers[e.target.id]) : (scoreContainer.innerHTML += numbers[e.target.id]);
- } else if (e.target.id === "backspace") {
+ } else if (e.target.id === "backspace" || e.target.id === "backspace-img") {
   document.getElementById(e.target.id).style.backgroundColor = "rgb(121, 79, 224)";
   setTimeout(() => {
-   document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
+   if (e.target.id === "backspace") document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
+   if (e.target.id === "backspace-img") document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90, 0)";
   }, 100);
   scoreContainer.innerHTML = scoreContainer.innerHTML.slice(0, scoreContainer.innerHTML.length - 1);
   if (scoreContainer.innerHTML === "") scoreContainer.innerHTML = 0;
- } else if (e.target.id === "confirm") {
+ } else if ((e.target.id === "confirm") | (e.target.id === "confirm-img")) {
   document.getElementById(e.target.id).style.backgroundColor = "rgb(121, 79, 224)";
   setTimeout(() => {
-   document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
+   if (e.target.id === "confirm") document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
+   if (e.target.id === "confirm-img") document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90,0)";
   }, 100);
   currentScore = +scoreContainer.innerHTML;
   removeScores(currentPlayer, currentScore);
@@ -83,11 +98,17 @@ function resetDarts() {
   dartOne1.src = "./darts/dart1.png";
   dartOne2.src = "./darts/dart1.png";
   dartOne3.src = "./darts/dart1.png";
+  dartTwo1.src = "./darts/blank.png";
+  dartTwo2.src = "./darts/blank.png";
+  dartTwo3.src = "./darts/blank.png";
  }
  if (currentPlayer === 2) {
   dartTwo1.src = "./darts/dart2.png";
   dartTwo2.src = "./darts/dart2.png";
   dartTwo3.src = "./darts/dart2.png";
+  dartOne1.src = "./darts/blank.png";
+  dartOne2.src = "./darts/blank.png";
+  dartOne3.src = "./darts/blank.png";
  }
 }
 function bustPlayer() {
@@ -114,6 +135,7 @@ function removeScores(player, score) {
    bust = true;
   } else {
    playerOneScoreContainer.innerHTML = playerOneScore;
+   addHistory();
    endGameCheck();
   }
  } else if (player === 2) {
@@ -123,6 +145,7 @@ function removeScores(player, score) {
    bust = true;
   } else {
    playerTwoScoreContainer.innerHTML = playerTwoScore;
+   addHistory();
    endGameCheck();
   }
  }
@@ -177,20 +200,60 @@ function addFinishers(currentPlayerScore) {
  });
  finishersContainer.appendChild(list);
 }
+function addHistory() {
+ if (currentPlayer === 1 && dartsRemaining === 1) {
+  let element = document.createElement("li");
+  element.className = "history";
+  element.innerHTML = playerOneScore;
+  playerOneHistoryContainer.appendChild(element);
+ }
+ if (currentPlayer === 2 && dartsRemaining === 1) {
+  let element = document.createElement("li");
+  element.className = "history";
+  element.innerHTML = playerTwoScore;
+  playerTwoHistoryContainer.appendChild(element);
+ }
+}
+function removeHistory() {
+ const elements = document.getElementsByClassName("history");
+ while (elements.length > 0) elements[0].remove();
+}
 
 function endGameCheck() {
  if (playerOneScore === 0) {
   playerOneMatchCount++;
   playerOneGamesTotal.innerHTML = playerOneMatchCount;
+  setTimeout(() => {
+   resetGame();
+  }, 2000);
  }
  if (playerTwoScore === 0) {
   playerTwoMatchCount++;
   playerTwoGamesTotal.innerHTML = playerTwoMatchCount;
+  setTimeout(() => {
+   resetGame();
+   addFinishers();
+  }, 2000);
  }
- resetGame();
 }
 function resetGame() {
- //TODO
+ if (playerStarted === 1) {
+  currentPlayer = 2;
+  playerStarted = 2;
+  resetDarts();
+ } else if (playerStarted === 2) {
+  currentPlayer = 1;
+  playerStarted = 1;
+  resetDarts();
+ }
+ playerOneScore = 501;
+ playerTwoScore = 501;
+ playerOneScoreContainer.innerHTML = playerOneScore;
+ playerTwoScoreContainer.innerHTML = playerTwoScore;
+ dartsRemaining = 3;
+ currentScore = 0;
+ possibleFinishers = null;
+ removeHistory();
 }
 
 function dartsFinishers(score, darts) {
@@ -327,3 +390,33 @@ function dartsFinishers(score, darts) {
 
  return null;
 }
+
+homeButton.addEventListener("click", () => {
+ menuConfirmationContainer.style.display = "grid";
+});
+
+cancelMenu.addEventListener("click", () => {
+ menuConfirmationContainer.style.display = "none";
+});
+confirmMenu.addEventListener("click", () => {
+ window.localStorage.removeItem("poolAppData");
+ location.href = "./index.html";
+ menuConfirmationContainer.style.display = "none";
+});
+helpButton.addEventListener("click", () => {
+ helpMenuContainer.style.display = "grid";
+});
+closeHelp.addEventListener("click", () => {
+ helpMenuContainer.style.display = "none";
+});
+fullScreenButton.addEventListener(
+ "click",
+ () => {
+  const elem = document.documentElement;
+  if (elem.requestFullscreen) {
+   elem.requestFullscreen();
+  }
+  fullScreenMesage.style.display = "none";
+ },
+ false
+);
