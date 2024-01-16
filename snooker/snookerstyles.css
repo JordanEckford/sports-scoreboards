@@ -128,12 +128,24 @@ label {
  align-self: flex-end;
  text-align: center;
 }
+h2 {
+ display: flex;
+ width: 100%;
+ justify-content: center;
+ align-items: center;
+ margin-block-start: 0;
+ margin-block-end: 0;
+ margin-inline-start: 0px;
+ margin-inline-end: 0px;
+}
 #player-1-tile {
  grid-column: 1/3;
  grid-row: 1;
- justify-self: center;
- text-align: center;
  display: flex;
+ width: 100%;
+ justify-self: center;
+ align-items: center;
+ text-align: center;
 }
 #player-2-tile {
  grid-column-start: 4;
@@ -205,6 +217,7 @@ label {
 }
 .current {
  border-radius: 9999px;
+ width: 100%;
  background-color: rgba(0, 0, 0, 0.336);
 }
 h3 {
