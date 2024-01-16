@@ -12,7 +12,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
 </head>
  <body>
-  <h1>Snooker Scoreboard</h1>
+  <!-- <div id="settings" class="hidden" style="display: none">
+    <button id="close-settings">Close</button>
+  </div> -->
+  <div id="help" class="hidden" style="display: none;">
+    <p>
+      - Click the correct colour ball as they are potted <br/>
+      - If a player misses or plays a safety, click the corresponding button <br/>
+      - If a player fouls, you will be given the option to choose which ball the player fouled on <br/>
+      - Click a players name to switch turn (should only be used at the start of a game). Current players turn is highlighted <br/>
+      - 'Load Results' loads previous games scores and displays them. These can be hidden by clicking the button again <br/>
+      - Once a user goes 'home', data is deleted
+    </p>
+    <button id="close-help">Close</button>
+  </div>
+  <div id="navbar">
+    <div id="buttons">
+      <button id="change-name" class="hidden">Home</button>
+      <button id="results-loader" class="hidden">Load Results</button>
+      <button id="help-button">Help</button>
+      <!-- <button id="settings-button">Settings</button> -->
+    </div>
+    <h1>Snooker Scoreboard</h1>
+
+  </div>
   <div id="name-form-container" class="">
   <form id="name-form">
    <label for="player-1-name">Player 1:</label>
@@ -56,7 +79,12 @@
         <button class="ball" id="brown"></button>
         <button class="ball" id="yellow"></button>
         </div>
-        <button class="ball" id="red">15</button>
+        <div id="red-modifier">
+          <p id="minus-red">-</p>
+          <button class="ball" id="red">15</button>
+          <p id="add-red">+</p>
+
+        </div>
       </section>
 
       <p id="foul-msg" class="hidden">Select ball fouled on <br/> (click to cancel)</p>
@@ -71,15 +99,6 @@
       <button id="end-frame">End Frame</button>
       <button id="redo" class="hidden">Redo</button>
     </section>
-    <section id="red-modifier">
-      <p id="minus-red">-</p>
-      <p>Adjust Reds</p>
-      <p id="add-red">+</p>
-    </section>
-    <div id="return-to-names">
-      <button id="change-name" class="hidden">Change Names</button>
-      <button id="results-loader">Load Results</button>
-    </div>
     <div id="result-container" class="hidden">
     <section id="results" >
     </section>

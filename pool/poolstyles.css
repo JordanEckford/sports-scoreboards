@@ -259,7 +259,7 @@ button {
  position: absolute;
  top: 50%;
  left: 50%;
- width: 50vw;
+ width: 70vw;
  height: 50vh;
  background-color: rgba(0, 0, 0, 0.836);
  z-index: 3;
@@ -303,9 +303,17 @@ button {
 #fs-text {
  color: black;
 }
-
-.hidden {
- display: none;
+.fade-out {
+ animation-name: fadeout;
+ animation-duration: 1s;
+}
+@keyframes fadeout {
+ from {
+  opacity: 100;
+ }
+ to {
+  opacity: 0;
+ }
 }
 
 @media only screen and (max-width: 600px) {
@@ -343,4 +351,7 @@ button {
  #player-2-input {
   max-width: 99vw;
  }
+}
+.hidden {
+ display: none;
 }

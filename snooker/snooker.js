@@ -32,6 +32,12 @@ const resultsLoader = document.getElementById("results-loader");
 const goHomeButton = document.getElementById("go-home");
 // const fullScreenButton = document.getElementById("go-fs");
 // const fullScreenMesage = document.getElementById("fullscreen-msg");
+const settings = document.getElementById("settings");
+const settingsButton = document.getElementById("settings-button");
+const closeSettingsButton = document.getElementById("close-settings");
+const helpButton = document.getElementById("help-button");
+const closeHelpButton = document.getElementById("close-help");
+const help = document.getElementById("help");
 
 let playerOne = "";
 let playerTwo = "";
@@ -167,6 +173,7 @@ if (window.localStorage.player1 && window.localStorage.player2) {
  nameFormContainer.className = "hidden";
  bulk.className = "";
  changeNameButton.className = "";
+ resultsLoader.className = "";
  playerOneHeader.innerHTML = playerOne;
  playerTwoHeader.innerHTML = playerTwo;
  started = true;
@@ -190,6 +197,7 @@ nameForm.addEventListener("submit", (event) => {
  playerOneHeader.innerHTML = playerOne;
  playerTwoHeader.innerHTML = playerTwo;
  changeNameButton.className = "";
+ resultsLoader.className = "";
  window.localStorage.player1 = playerOne;
  window.localStorage.player2 = playerTwo;
  bulk.className = "";
@@ -203,6 +211,7 @@ changeNameButton.addEventListener("click", () => {
   nameFormContainer.className = "";
   bulk.className = "hidden";
   changeNameButton.className = "hidden";
+  resultsLoader.className = "hidden";
   playerOneFrameCount = 0;
   playerTwoFrameCount = 0;
   playerOneTotal = 0;
@@ -557,8 +566,26 @@ function loadPreviousResults() {
   }
   resultContainer.appendChild(list);
   resultsLoader.innerHTML = "Hide Results";
+  window.scroll({
+   left: 0,
+   top: 1000,
+   behavior: "smooth",
+  });
  }
 }
 goHomeButton.addEventListener("click", () => {
  location.href = "./index.html";
+});
+
+// settingsButton.addEventListener("click", () => {
+//  settings.style.display = "block";
+// });
+// closeSettingsButton.addEventListener("click", () => {
+//  settings.style.display = "none";
+// });
+helpButton.addEventListener("click", () => {
+ help.style.display = "block";
+});
+closeHelpButton.addEventListener("click", () => {
+ help.style.display = "none";
 });
