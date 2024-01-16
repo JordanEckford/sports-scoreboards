@@ -1,3 +1,6 @@
+* {
+ font-family: "Inconsolata", monospace;
+}
 html,
 body {
  margin: 0;
@@ -11,14 +14,14 @@ h1 {
  color: white;
  background-image: linear-gradient(to right, rgb(66, 41, 126), rgb(132, 0, 255));
 }
+h2 {
+ margin: 0;
+}
 .scores {
  display: flex;
  flex-direction: row;
  justify-content: center;
  width: 50%;
-}
-button {
- margin: 5px 10px;
 }
 #dart-board {
  width: 100vw;
@@ -34,7 +37,7 @@ button {
  height: 30vh;
 }
 .darts {
- width: 50px;
+ height: 40px;
 }
 #player-1-name {
  grid-column-start: 1;
@@ -46,9 +49,42 @@ button {
  grid-column-end: 6;
  grid-row: 1;
 }
+#player-1-games {
+ grid-column-start: 1;
+ grid-column-end: 3;
+ grid-row: 2;
+}
+#player-2-games {
+ grid-column-start: 4;
+ grid-column-end: 6;
+ grid-row: 2;
+}
+#player-1-games,
+#player-2-games {
+ text-align: center;
+ margin: 0;
+}
 #player-1-darts {
  grid-column-start: 1;
  grid-column-end: 3;
+ grid-row: 3;
+}
+p {
+ text-align: center;
+ margin: 0;
+ font-size: 15px;
+ font-weight: 700;
+}
+#games-label {
+ grid-column: 3;
+ grid-row: 2;
+}
+#score-label {
+ grid-column: 3;
+ grid-row: 4;
+}
+#darts-label {
+ grid-column: 3;
  grid-row: 3;
 }
 #player-2-darts {
@@ -77,6 +113,7 @@ button {
 #player-1-score-container,
 #player-2-score-container {
  text-align: center;
+ font-size: 20px;
 }
 #scores {
  display: grid;

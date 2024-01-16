@@ -3,6 +3,8 @@ const scoreContainer = document.getElementById("score-container");
 const playerOneScoreContainer = document.getElementById("player-1-score-container");
 const playerTwoScoreContainer = document.getElementById("player-2-score-container");
 const finishersContainer = document.getElementById("finishers-container");
+const playerOneGamesTotal = document.getElementById("player-1-games");
+const playerTwoGamesTotal = document.getElementById("player-2-games");
 const dartOne1 = document.getElementById("dart1-1");
 const dartOne2 = document.getElementById("dart2-1");
 const dartOne3 = document.getElementById("dart3-1");
@@ -178,12 +180,17 @@ function addFinishers(currentPlayerScore) {
 
 function endGameCheck() {
  if (playerOneScore === 0) {
-  console.log("WoOO");
   playerOneMatchCount++;
+  playerOneGamesTotal.innerHTML = playerOneMatchCount;
  }
  if (playerTwoScore === 0) {
-  console.log("WoOO");
+  playerTwoMatchCount++;
+  playerTwoGamesTotal.innerHTML = playerTwoMatchCount;
  }
+ resetGame();
+}
+function resetGame() {
+ //TODO
 }
 
 function dartsFinishers(score, darts) {
