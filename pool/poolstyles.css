@@ -12,6 +12,10 @@ html {
  max-height: 100vh;
  overflow: hidden;
 }
+html {
+ animation-name: fade;
+ animation-duration: 1s;
+}
 body {
  width: 100%;
  max-width: 1000px;

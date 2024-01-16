@@ -8,10 +8,22 @@ body {
  color: black;
  background-color: aliceblue;
 }
+html {
+ animation-name: fade;
+ animation-duration: 1s;
+}
+@keyframes fade {
+ from {
+  opacity: 0;
+ }
+ to {
+  opacity: 100;
+ }
+}
 #sport-image {
- width: 80vw;
+ width: 95%;
  margin: 0 auto;
- border-radius: 99999px;
+ border-radius: 20px;
  border: 1px solid black;
  max-width: 500px;
 }
@@ -36,12 +48,12 @@ h1 {
  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
  border-radius: 10px;
  display: flex;
- flex-direction: column;
- justify-content: center;
+ flex-direction: row;
+ justify-content: space-between;
  align-items: center;
  padding: 10px;
  margin: 20px auto;
- text-align: center;
+ text-align: left;
  max-width: 1000px;
  width: 90%;
 }
@@ -53,6 +65,13 @@ a:visited {
  color: black;
 }
 img {
- width: 50px;
+ width: 90px;
+ border: solid 1px black;
  border-radius: 99999px;
+}
+
+@media only screen and (min-width: 600px) {
+ #game {
+  justify-content: space-around;
+ }
 }

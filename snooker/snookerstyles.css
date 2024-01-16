@@ -10,6 +10,8 @@ html {
  background-attachment: fixed;
  color: white;
  font-family: "Inconsolata", monospace;
+ animation-name: fade;
+ animation-duration: 1s;
 }
 button {
  margin: 10px auto;
