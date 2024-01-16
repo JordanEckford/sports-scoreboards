@@ -416,7 +416,10 @@ fullScreenButton.addEventListener(
   if (elem.requestFullscreen) {
    elem.requestFullscreen();
   }
-  fullScreenMesage.style.display = "none";
+  fullScreenMesage.className = "fade-out";
+  setTimeout(() => {
+   fullScreenMesage.style.display = "none";
+  }, 1000);
  },
  false
 );

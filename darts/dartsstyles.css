@@ -141,7 +141,7 @@ p {
 #scores {
  display: grid;
  grid-template-columns: 1fr 1fr 1fr;
- grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+ grid-template-rows: 50px 1fr 1fr 1fr 1fr;
  text-align: center;
  align-items: center;
  position: fixed;
@@ -156,10 +156,13 @@ p {
  grid-column-end: 4;
  text-align: center;
  align-self: flex-end;
+ display: flex;
+ justify-content: center;
+ align-items: center;
  border: 1px solid black;
  font-size: 25px;
- padding: 10px;
- height: 30px;
+ /* padding: 10px; */
+ height: 100%;
  margin: 0;
  box-shadow: rgba(34, 0, 78, 0.25) 0px 5px 60px -12px inset, rgba(38, 0, 82, 0.3) 0px 18px 36px -18px inset;
  background-color: white;
@@ -337,10 +340,52 @@ button {
  height: fit-content;
  width: fit-content;
 }
+.fade-out {
+ animation-name: fadeout;
+ animation-duration: 1s;
+}
+@keyframes fadeout {
+ from {
+  opacity: 100;
+ }
+ to {
+  opacity: 0;
+ }
+}
 
 @media only screen and (min-width: 600px) {
- html {
-  background-color: red;
+ #navbar {
+  height: 18vh;
+ }
+ #scoreboard {
+  width: 60vw;
+  height: 35vh;
+ }
+ #player-1-score-container,
+ #player-2-score-container {
+  margin: 0;
+ }
+ #information-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1;
+  height: 65vh;
+  width: 60%;
+ }
+ #player-one-history,
+ #player-two-history,
+ #finishers-container,
+ #result-list,
+ .result-list {
+  height: 40vh;
+  max-height: none;
+ }
+ #scores {
+  position: fixed;
+  left: 60%;
+  top: 18.5vh;
+  width: 40vw;
+  height: 82vh;
  }
 }
 
