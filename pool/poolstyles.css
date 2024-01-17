@@ -293,12 +293,12 @@ button {
 
 @media only screen and (max-width: 600px) {
  #top-bar {
-  height: fit-content;
+  height: 10vh;
   padding: 0;
  }
  main {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 0;
