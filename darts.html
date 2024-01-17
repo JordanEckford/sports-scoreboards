@@ -22,12 +22,13 @@
    <button id="cancel-menu">Cancel</button>
   </div>
   <div id="help-menu-container" class="hidden" style="display: none">
-   <p id="help-msg">
-    - Enter score for every dart, using 0 for a miss. <br />
-    - Busts, additions and player changes will be handled <br />
-    - Darts below names represent how many shots are left <br />
-    - When possible, checkout routes will be shown
-   </p>
+   <ul id="help-msg">
+    <li>Tap the names to change</li>
+    <li>Enter score for every dart, using 0 for a miss.</li>
+    <li>Busts, additions and player changes will be handled</li>
+    <li>Darts below names represent how many shots are left</li>
+    <li>When possible, checkout routes will be shown</li>
+   </ul>
    <button id="close-help">Close</button>
   </div>
   <div id="navbar">
@@ -39,8 +40,8 @@
   </div>
 
   <section id="scoreboard">
-   <h2 id="player-1-name">Player 1</h2>
-   <h2 id="player-2-name">Player 2</h2>
+   <h2 id="player-1-name"><input id="player-1-input" placeholder="Player 1" /></h2>
+   <h2 id="player-2-name"><input id="player-2-input" placeholder="Player 2" /></h2>
    <h3 id="player-1-games">0</h3>
    <h3 id="player-2-games">0</h3>
    <p id="games-label">Games</p>
@@ -81,8 +82,7 @@
    <div id="n9">9</div>
    <div id="backspace"><img id="backspace-img" src="./darts/backspace.png" /></div>
    <div id="n0">0</div>
-   <div id="confirm"><img id="confirm-img" src="./darts/confirm.png" /></div>
+   <div id="confirm"><img id="confirm-img" src="./darts/confirm.png" class="hidden" /><span id="miss-text">Miss</span></div>
   </section>
-  <!-- <img src="./darts/dartboard.png" id="dart-board"/> -->
  </body>
 </html>

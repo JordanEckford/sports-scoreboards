@@ -22,6 +22,8 @@ const closeHelp = document.getElementById("close-help");
 const helpButton = document.getElementById("help-button");
 const fullScreenButton = document.getElementById("go-fs");
 const fullScreenMesage = document.getElementById("fullscreen-msg");
+const confirmImage = document.getElementById("confirm-img");
+const missText = document.getElementById("miss-text");
 
 const numbers = {
  n1: 1,
@@ -35,6 +37,10 @@ const numbers = {
  n9: 9,
  n0: 0,
 };
+const legalShots = [
+ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 50, 25, 60, 40, 57, 38, 54, 36, 51, 34, 48, 32, 45, 30, 42, 28, 39, 26, 36, 24, 33, 22,
+ 30, 20, 27, 18, 24, 16, 21, 14, 18, 12, 15, 10, 12, 8, 9, 6, 6, 4, 3, 2, 0,
+];
 
 let currentPlayer = 1;
 let playerStarted = 1;
@@ -52,24 +58,41 @@ numbersPad.addEventListener("click", (e) => {
   document.getElementById(e.target.id).style.backgroundColor = "rgb(121, 79, 224)";
   setTimeout(() => {
    document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
-  }, 100);
+  }, 75);
   scoreContainer.innerHTML === "0" ? (scoreContainer.innerHTML = numbers[e.target.id]) : (scoreContainer.innerHTML += numbers[e.target.id]);
  } else if (e.target.id === "backspace" || e.target.id === "backspace-img") {
-  document.getElementById(e.target.id).style.backgroundColor = "rgb(121, 79, 224)";
+  document.getElementById("backspace").style.backgroundColor = "rgb(121, 79, 224)";
   setTimeout(() => {
-   if (e.target.id === "backspace") document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
-   if (e.target.id === "backspace-img") document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90, 0)";
-  }, 100);
+   document.getElementById("backspace").style.backgroundColor = "rgb(46, 28, 90)";
+  }, 75);
   scoreContainer.innerHTML = scoreContainer.innerHTML.slice(0, scoreContainer.innerHTML.length - 1);
   if (scoreContainer.innerHTML === "") scoreContainer.innerHTML = 0;
  } else if ((e.target.id === "confirm") | (e.target.id === "confirm-img")) {
-  document.getElementById(e.target.id).style.backgroundColor = "rgb(121, 79, 224)";
+  document.getElementById("confirm").style.backgroundColor = "rgb(121, 79, 224)";
   setTimeout(() => {
-   if (e.target.id === "confirm") document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90)";
-   if (e.target.id === "confirm-img") document.getElementById(e.target.id).style.backgroundColor = "rgb(46, 28, 90,0)";
-  }, 100);
-  currentScore = +scoreContainer.innerHTML;
-  removeScores(currentPlayer, currentScore);
+   document.getElementById("confirm").style.backgroundColor = "rgb(46, 28, 90)";
+  }, 75);
+  if (!legalShots.includes(+scoreContainer.innerHTML)) {
+   scoreContainer.innerHTML = "Error! Check score!";
+   scoreContainer.style.color = "red";
+   setTimeout(() => {
+    currentScore = 0;
+    scoreContainer.innerHTML = currentScore;
+    scoreContainer.style.color = "black";
+    missText.className = "";
+    confirmImage.className = "hidden";
+   }, 1000);
+  } else {
+   currentScore = +scoreContainer.innerHTML;
+   removeScores(currentPlayer, currentScore);
+  }
+ }
+ if (scoreContainer.innerHTML === "0") {
+  missText.className = "";
+  confirmImage.className = "hidden";
+ } else {
+  missText.className = "hidden";
+  confirmImage.className = "";
  }
 });
 
@@ -116,11 +139,13 @@ function bustPlayer() {
   dartOne1.src = "./darts/blank.png";
   dartOne2.src = "./darts/blank.png";
   dartOne3.src = "./darts/blank.png";
+  addFinishers(playerTwoScore);
  }
  if (currentPlayer === 2) {
   dartTwo1.src = "./darts/blank.png";
   dartTwo2.src = "./darts/blank.png";
   dartTwo3.src = "./darts/blank.png";
+  addFinishers(playerOneScore);
  }
  currentPlayer = currentPlayer === 1 ? 2 : 1;
  resetDarts();
@@ -152,6 +177,8 @@ function removeScores(player, score) {
  if (bust === false) {
   currentScore = 0;
   scoreContainer.innerHTML = 0;
+  missText.className = "";
+  confirmImage.className = "hidden";
   dartsRemaining--;
   removeDarts(currentPlayer);
   if (dartsRemaining === 0) {
@@ -171,6 +198,8 @@ function removeScores(player, score) {
    currentScore = 0;
    scoreContainer.innerHTML = currentScore;
    scoreContainer.style.color = "black";
+   missText.className = "";
+   confirmImage.className = "hidden";
    bust = false;
    bustPlayer();
    dartsRemaining = 3;

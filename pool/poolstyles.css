@@ -99,31 +99,6 @@ main {
 ::placeholder {
  color: white;
 }
-/* #reset-scores {
- position: absolute;
- top: 15px;
- right: 10px;
-}
-#colour-settings {
- position: absolute;
- top: 15px;
- left: 10px;
-}
-#lock-names {
- position: absolute;
- top: 15px;
- left: 85px;
-}
-#home {
- position: absolute;
- top: 15px;
- right: 70px;
-}
-#help {
- position: absolute;
- top: 15px;
- right: 125px;
-} */
 button {
  padding: 5px;
  font-size: 16px;

@@ -364,7 +364,7 @@ p {
  position: absolute;
  top: 50%;
  left: 50%;
- width: 70vw;
+ width: 80vw;
  height: fit-content;
  background-color: rgba(0, 0, 0, 0.836);
  z-index: 3;
@@ -377,9 +377,16 @@ p {
  translate: -50% -50%;
  animation-name: fade;
  animation-duration: 1s;
- padding: 10px;
+ padding: 10px 25px;
 }
-
+#help-msg {
+ color: white;
+}
+#close-help {
+ display: flex;
+ grid-column-start: 1;
+ grid-column-end: 3;
+}
 .disabled {
  margin: 5px auto;
  border: black 1px solid;
