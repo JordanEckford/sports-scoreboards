@@ -52,8 +52,10 @@ let dartsRemaining = 3;
 let currentScore = 0;
 let turnScore = 0;
 let possibleFinishers = null;
+let keypadDisabled = false;
 
 numbersPad.addEventListener("click", (e) => {
+ if (keypadDisabled === true) return;
  if (numbers[e.target.id] !== undefined) {
   document.getElementById(e.target.id).style.backgroundColor = "rgb(121, 79, 224)";
   setTimeout(() => {
@@ -67,12 +69,13 @@ numbersPad.addEventListener("click", (e) => {
   }, 75);
   scoreContainer.innerHTML = scoreContainer.innerHTML.slice(0, scoreContainer.innerHTML.length - 1);
   if (scoreContainer.innerHTML === "") scoreContainer.innerHTML = 0;
- } else if ((e.target.id === "confirm") | (e.target.id === "confirm-img")) {
+ } else if (e.target.id === "confirm" || e.target.id === "confirm-img" || e.target.id === "miss-text") {
   document.getElementById("confirm").style.backgroundColor = "rgb(121, 79, 224)";
   setTimeout(() => {
    document.getElementById("confirm").style.backgroundColor = "rgb(46, 28, 90)";
   }, 75);
   if (!legalShots.includes(+scoreContainer.innerHTML)) {
+   keypadDisabled = true;
    scoreContainer.innerHTML = "Error! Check score!";
    scoreContainer.style.color = "red";
    setTimeout(() => {
@@ -81,6 +84,7 @@ numbersPad.addEventListener("click", (e) => {
     scoreContainer.style.color = "black";
     missText.className = "";
     confirmImage.className = "hidden";
+    keypadDisabled = false;
    }, 1000);
   } else {
    currentScore = +scoreContainer.innerHTML;
@@ -192,6 +196,7 @@ function removeScores(player, score) {
    addFinishers(playerTwoScore);
   }
  } else if (bust === true) {
+  keypadDisabled = true;
   scoreContainer.innerHTML = "Bust";
   scoreContainer.style.color = "red";
   setTimeout(() => {
@@ -203,6 +208,7 @@ function removeScores(player, score) {
    bust = false;
    bustPlayer();
    dartsRemaining = 3;
+   keypadDisabled = false;
   }, 1000);
  }
 }
